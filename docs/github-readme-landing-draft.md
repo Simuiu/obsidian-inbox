@@ -88,8 +88,8 @@ It does:
 Clone the repository:
 
 ```bash
-git clone https://github.com/<your-name>/video2obsidian.git
-cd video2obsidian
+git clone https://github.com/Simuiu/obsidian-inbox.git
+cd obsidian-inbox
 ```
 
 Configure your Obsidian Vault:
@@ -184,4 +184,3 @@ Use this if you:
 ## Star This Project
 
 If you want Codex-powered local knowledge workflows to become easier for Obsidian users, star the repo and share your use case in Issues.
-
