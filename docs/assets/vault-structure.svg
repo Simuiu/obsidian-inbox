@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-label="Obsidian vault structure">
+  <rect width="1400" height="760" fill="#101820"/>
+  <text x="90" y="86" fill="#f7f3ea" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">Obsidian-friendly structure</text>
+  <text x="90" y="126" fill="#b7c4cc" font-family="Inter, Arial, sans-serif" font-size="22">Folder notes keep the index and every resource one click away.</text>
+  <g transform="translate(90 185)" font-family="Inter, Arial, sans-serif">
+    <rect width="1220" height="480" rx="24" fill="#f7f3ea"/>
+    <text x="48" y="64" fill="#263442" font-size="26" font-weight="800">00_资料库</text>
+    <g fill="#263442" font-size="24">
+      <text x="88" y="126">000 资料库索引 / 000 资料库索引.md</text>
+      <text x="88" y="178">001 主题索引 / 001 主题索引.md</text>
+      <text x="88" y="230">002 用途索引 / 002 用途索引.md</text>
+      <text x="88" y="306">260505 资源标题 / 260505 资源标题.md</text>
+      <text x="132" y="358">_resources / 转写.md</text>
+      <text x="132" y="410">_resources / 普通总结归档.md</text>
+    </g>
+    <g fill="none" stroke="#65d6ad" stroke-width="4">
+      <path d="M63 118 h16"/><path d="M63 170 h16"/><path d="M63 222 h16"/><path d="M63 298 h16"/><path d="M106 350 h16"/><path d="M106 402 h16"/>
+      <path d="M63 62 v236"/><path d="M106 306 v96"/>
+    </g>
+    <rect x="820" y="90" width="320" height="260" rx="20" fill="#fff"/>
+    <text x="852" y="145" fill="#263442" font-size="28" font-weight="800">Summary mode</text>
+    <rect x="852" y="184" width="106" height="42" rx="10" fill="#e8eef0"/><text x="875" y="212" fill="#263442" font-size="20" font-weight="700">普通</text>
+    <rect x="982" y="184" width="106" height="42" rx="10" fill="#65d6ad"/><text x="1005" y="212" fill="#14212b" font-size="20" font-weight="700">深度</text>
+    <text x="852" y="270" fill="#52616f" font-size="20">Visible in notes and indexes.</text>
+  </g>
+</svg>

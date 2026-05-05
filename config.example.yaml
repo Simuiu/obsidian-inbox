@@ -1,0 +1,25 @@
+obsidian:
+  vault_path: "/path/to/your/ObsidianVault"
+  note_folder: "00_资料库"
+  raw_folder: "00_资料库/_raw"
+  attachment_folder: "00_资料库/_attachments"
+  resource_folder: "00_资料库"
+  topic_folder: "00_资料库"
+  purpose_folder: "00_资料库"
+  index_file: "00_资料库/000 资料库索引/000 资料库索引.md"
+  filename_rule: "date_short_title"
+
+tasks:
+  task_dir: "tasks"
+
+capture:
+  prefer_subtitle: true
+  require_api_key: false
+  mode: "codex_manual"
+
+bilibili:
+  cookies_file: "secrets/bilibili.cookies.txt"
+  fallback_cookies_from_browser: "chrome"
+
+codex:
+  summary_mode: "manual"

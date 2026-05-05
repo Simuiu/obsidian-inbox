@@ -1,0 +1,26 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# Runtime task artifacts
+tasks/
+tasks/*/audio.*
+tasks/*/chunks/
+tasks/*/sample_*.wav
+tasks/*/yt-dlp.log
+logs/
+
+# Local models can be re-downloaded and are too large for source control.
+models/
+
+# Local downloaded tools are large platform-specific binaries.
+tools/bin/
+
+# Machine-specific config. Use config.example.yaml as the public template.
+config.yaml
+
+# Login cookies and credentials.
+secrets/*.txt
+secrets/*.json
+secrets/*.cookies
+secrets/*.cookies.txt

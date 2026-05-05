@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="620" viewBox="0 0 1400 620" role="img" aria-label="Obsidian Inbox workflow">
+  <rect width="1400" height="620" fill="#fbfaf7"/>
+  <text x="90" y="92" fill="#1f2933" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">Workflow</text>
+  <text x="90" y="132" fill="#657482" font-family="Inter, Arial, sans-serif" font-size="22">Capture once, summarize with intent, preserve the trail.</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">
+    <g transform="translate(90 230)">
+      <rect width="180" height="120" rx="18" fill="#263442"/><text x="34" y="69" fill="#fff">Link / File</text>
+    </g>
+    <g transform="translate(330 230)">
+      <rect width="180" height="120" rx="18" fill="#e8eef0"/><text x="39" y="58" fill="#263442">Local</text><text x="31" y="88" fill="#263442">Capture</text>
+    </g>
+    <g transform="translate(570 230)">
+      <rect width="180" height="120" rx="18" fill="#e8eef0"/><text x="29" y="58" fill="#263442">Compact</text><text x="58" y="88" fill="#263442">Task</text>
+    </g>
+    <g transform="translate(810 230)">
+      <rect width="180" height="120" rx="18" fill="#65d6ad"/><text x="35" y="58" fill="#14212b">Codex</text><text x="28" y="88" fill="#14212b">Summary</text>
+    </g>
+    <g transform="translate(1050 230)">
+      <rect width="220" height="120" rx="18" fill="#f6c85f"/><text x="34" y="58" fill="#14212b">Obsidian</text><text x="62" y="88" fill="#14212b">Index</text>
+    </g>
+  </g>
+  <g stroke="#8b9aa7" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M285 290 H315"/><path d="M525 290 H555"/><path d="M765 290 H795"/><path d="M1005 290 H1035"/>
+  </g>
+  <g fill="#8b9aa7">
+    <path d="M315 290 l-12 -8 v16z"/><path d="M555 290 l-12 -8 v16z"/><path d="M795 290 l-12 -8 v16z"/><path d="M1035 290 l-12 -8 v16z"/>
+  </g>
+  <text x="92" y="464" fill="#52616f" font-family="Inter, Arial, sans-serif" font-size="21">No fake summaries when capture fails. No large local media copied into iCloud. Every note links back to raw context.</text>
+</svg>
