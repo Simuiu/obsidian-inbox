@@ -52,13 +52,13 @@ Codex，请先完整阅读本文档，不要立即改代码。你的任务是帮
 希望最终可以这样运行：
 
 ```bash
-video2obsidian "https://www.bilibili.com/video/BVxxxx"
+obsidian-inbox "https://www.bilibili.com/video/BVxxxx"
 ```
 
 或者：
 
 ```bash
-video2obsidian "https://www.youtube.com/watch?v=xxxx"
+obsidian-inbox "https://www.youtube.com/watch?v=xxxx"
 ```
 
 运行后自动生成：
@@ -81,7 +81,7 @@ https://www.youtube.com/watch?v=xxxx
 然后运行：
 
 ```bash
-video2obsidian batch
+obsidian-inbox batch
 ```
 
 系统自动逐条处理。
@@ -242,7 +242,7 @@ Video2Obsidian
 命令名建议为：
 
 ```bash
-video2obsidian
+obsidian-inbox
 ```
 
 ---
@@ -320,7 +320,7 @@ video2obsidian
 ```text
 复制视频链接
 → 打开终端
-→ 运行 video2obsidian "视频链接"
+→ 运行 obsidian-inbox "视频链接"
 → 打开 Obsidian 查看笔记
 ```
 
@@ -328,7 +328,7 @@ video2obsidian
 
 ```text
 把多个链接放到 inbox.txt
-→ 运行 video2obsidian batch
+→ 运行 obsidian-inbox batch
 → 成功链接进入 processed.txt
 → 失败链接进入 failed.txt
 → Obsidian 中自动出现多篇视频笔记
@@ -480,14 +480,14 @@ tags:
 Video2Obsidian/
 ├── README.md
 ├── AGENTS.md
-├── VIDEO2OBSIDIAN_SPEC.md
+├── OBSIDIAN_INBOX_SPEC.md
 ├── config.example.yaml
 ├── config.yaml
 ├── inbox.txt
 ├── processed.txt
 ├── failed.txt
 ├── logs/
-├── video2obsidian/
+├── obsidian-inbox/
 │   ├── __init__.py
 │   ├── cli.py
 │   ├── config.py
@@ -512,7 +512,7 @@ Video2Obsidian/
 ### 13.1 初始化配置
 
 ```bash
-video2obsidian init
+obsidian-inbox init
 ```
 
 生成：
@@ -528,25 +528,25 @@ logs/
 ### 13.2 单链接处理
 
 ```bash
-video2obsidian run "https://www.bilibili.com/video/BVxxxx"
+obsidian-inbox run "https://www.bilibili.com/video/BVxxxx"
 ```
 
 或简写：
 
 ```bash
-video2obsidian "https://www.youtube.com/watch?v=xxxx"
+obsidian-inbox "https://www.youtube.com/watch?v=xxxx"
 ```
 
 ### 13.3 批量处理
 
 ```bash
-video2obsidian batch
+obsidian-inbox batch
 ```
 
 ### 13.4 检查配置
 
 ```bash
-video2obsidian doctor
+obsidian-inbox doctor
 ```
 
 检查：
@@ -764,7 +764,7 @@ cd BiliNote
 把本文档放到项目根目录：
 
 ```text
-VIDEO2OBSIDIAN_SPEC.md
+OBSIDIAN_INBOX_SPEC.md
 ```
 
 ### 20.3 启动 Codex
@@ -776,7 +776,7 @@ codex
 ### 20.4 给 Codex 的第一句话
 
 ```text
-请先阅读 VIDEO2OBSIDIAN_SPEC.md 和当前项目代码。不要修改文件。先输出一份实现方案和修改计划。
+请先阅读 OBSIDIAN_INBOX_SPEC.md 和当前项目代码。不要修改文件。先输出一份实现方案和修改计划。
 ```
 
 ### 20.5 确认后再让 Codex 改
@@ -825,7 +825,7 @@ AGENTS.md
 下面这段可以直接复制给 Codex：
 
 ```text
-请先阅读当前目录下的 VIDEO2OBSIDIAN_SPEC.md。
+请先阅读当前目录下的 OBSIDIAN_INBOX_SPEC.md。
 
 我的目标是实现一个 Video2Obsidian 工具：输入 YouTube 或哔哩哔哩视频链接，自动获取字幕或转写音频，调用大模型总结，生成 Markdown，并保存到我的 Obsidian Vault 指定目录。
 

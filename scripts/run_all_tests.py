@@ -28,8 +28,8 @@ def main() -> None:
     steps = [
         ("py_compile", [sys.executable, "-m", "py_compile", *[str(path) for path in sorted((ROOT / "scripts").glob("*.py"))]]),
         ("doctor", [sys.executable, "scripts/doctor.py"]),
-        ("init_config", [sys.executable, "scripts/init_config.py", "--vault-path", "/tmp/video2obsidian-vault", "--output", "/tmp/video2obsidian-test-config.yaml", "--force"]),
-        ("render_note", [sys.executable, "scripts/render_note.py", "tasks/2026-05-04-wechat-9d5DWg7YdMHPvVl-2KLH2w", "--output", "/tmp/video2obsidian-render-test.md", "--force"]),
+        ("init_config", [sys.executable, "scripts/init_config.py", "--vault-path", "/tmp/obsidian-inbox-vault", "--output", "/tmp/obsidian-inbox-test-config.yaml", "--force"]),
+        ("render_note", [sys.executable, "scripts/render_note.py", "tasks/2026-05-04-wechat-9d5DWg7YdMHPvVl-2KLH2w", "--output", "/tmp/obsidian-inbox-render-test.md", "--force"]),
         ("local_export", [sys.executable, "scripts/run_local_export_smoke_test.py"]),
     ]
     if not args.skip_network:
@@ -44,9 +44,9 @@ def main() -> None:
     steps.append(("rebuild_index", [sys.executable, "scripts/rebuild_obsidian_index.py"]))
 
     results = [run_step(name, cmd) for name, cmd in steps]
-    for temp in [Path("/tmp/video2obsidian-test-config.yaml"), Path("/tmp/video2obsidian-test-config.yaml.bak")]:
+    for temp in [Path("/tmp/obsidian-inbox-test-config.yaml"), Path("/tmp/obsidian-inbox-test-config.yaml.bak")]:
         temp.unlink(missing_ok=True)
-    Path("/tmp/video2obsidian-render-test.md").unlink(missing_ok=True)
+    Path("/tmp/obsidian-inbox-render-test.md").unlink(missing_ok=True)
     summary = {
         "passed": all(item["passed"] for item in results),
         "total": len(results),

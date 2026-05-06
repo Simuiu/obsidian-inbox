@@ -18,7 +18,7 @@ SAMPLE_LICENSE = "OpenAI Whisper repository test fixture"
 
 def download(url: str, output: Path) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
-    req = Request(url, headers={"User-Agent": "video2obsidian-public-asr-smoke-test/1.0"})
+    req = Request(url, headers={"User-Agent": "obsidian-inbox-public-asr-smoke-test/1.0"})
     with urlopen(req, timeout=60) as response, output.open("wb") as fh:
         shutil.copyfileobj(response, fh)
 

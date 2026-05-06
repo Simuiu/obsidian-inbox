@@ -12,7 +12,7 @@
 
 ## 固定路径
 
-- 项目目录：`/Users/longhuadmin/video2obsidian`
+- 项目目录：`/Users/longhuadmin/obsidian-inbox`
 - Obsidian Vault：`/Users/longhuadmin/Library/Mobile Documents/iCloud~md~obsidian/Documents/bling`
 - 资料库目录：`00_资料库`
 - 总索引：`00_资料库/000 资料库索引/000 资料库索引.md`

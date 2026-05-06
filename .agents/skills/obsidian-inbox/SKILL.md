@@ -18,7 +18,7 @@ Turn external content into clean Obsidian Inbox notes that remain navigable afte
 
 ## Fixed Paths
 
-- Project root: `/Users/longhuadmin/video2obsidian`
+- Project root: `/Users/longhuadmin/obsidian-inbox`
 - Obsidian vault: `/Users/longhuadmin/Library/Mobile Documents/iCloud~md~obsidian/Documents/bling`
 - Library folder: `00_资料库`
 - Index file: `00_资料库/000 资料库索引/000 资料库索引.md`
