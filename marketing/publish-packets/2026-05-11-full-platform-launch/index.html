@@ -3,37 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Obsidian Inbox 全平台发布助手</title>
+  <title>Obsidian Inbox 全平台发布工作台</title>
   <style>
     :root {
-      --bg: #f6f2ea;
-      --ink: #25221e;
-      --muted: #70695f;
-      --line: #d9cec0;
-      --paper: #fffaf2;
+      --bg: #f4f1ea;
+      --paper: #fffdf8;
+      --ink: #26231f;
+      --muted: #716b61;
+      --line: #d8d0c4;
+      --soft: #ebe4d8;
       --accent: #0f766e;
-      --accent-2: #9a3412;
-      --soft: #eadfce;
-      --code: #1f2937;
-      --ok: #166534;
+      --accent-dark: #0b4f49;
+      --warn: #a34716;
+      --code: #18222f;
+      --green-soft: #e3f4ef;
+      --shadow: 0 18px 45px rgba(65, 54, 39, .10);
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
+      min-height: 100vh;
       color: var(--ink);
       background:
-        linear-gradient(90deg, rgba(37, 34, 30, .045) 1px, transparent 1px),
-        linear-gradient(rgba(37, 34, 30, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(38,35,31,.045) 1px, transparent 1px),
+        linear-gradient(rgba(38,35,31,.035) 1px, transparent 1px),
         var(--bg);
-      background-size: 28px 28px;
-      font-family: "Avenir Next", "Helvetica Neue", "PingFang SC", sans-serif;
+      background-size: 26px 26px;
+      font-family: "Avenir Next", "PingFang SC", "Hiragino Sans GB", sans-serif;
     }
 
-    .shell {
+    .layout {
       display: grid;
-      grid-template-columns: 280px minmax(0, 1fr);
+      grid-template-columns: 292px minmax(0, 1fr);
       min-height: 100vh;
     }
 
@@ -41,40 +44,40 @@
       position: sticky;
       top: 0;
       height: 100vh;
-      padding: 28px 20px;
-      border-right: 1px solid var(--line);
-      background: rgba(255, 250, 242, .86);
-      backdrop-filter: blur(12px);
       overflow: auto;
+      padding: 24px 18px;
+      border-right: 1px solid var(--line);
+      background: rgba(255,253,248,.9);
+      backdrop-filter: blur(14px);
     }
 
     .brand {
-      padding-bottom: 20px;
+      padding: 0 4px 18px;
       border-bottom: 1px solid var(--line);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .eyebrow {
+      color: var(--warn);
       font-size: 12px;
-      letter-spacing: .08em;
-      color: var(--accent-2);
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 30px;
-      line-height: 1.08;
-      margin: 8px 0 10px;
+      font-weight: 800;
       letter-spacing: 0;
     }
 
-    .subtitle {
+    h1, h2, h3 { letter-spacing: 0; }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 31px;
+      line-height: 1.05;
+      margin: 8px 0 10px;
+    }
+
+    .brand p {
+      margin: 0;
       color: var(--muted);
       font-size: 14px;
       line-height: 1.55;
-      margin: 0;
     }
 
     nav {
@@ -84,827 +87,716 @@
 
     .tab {
       width: 100%;
-      min-height: 42px;
       border: 1px solid transparent;
+      border-radius: 8px;
+      min-height: 44px;
+      padding: 10px 12px;
       background: transparent;
       color: var(--ink);
-      border-radius: 7px;
       text-align: left;
-      padding: 10px 12px;
-      font-size: 14px;
       cursor: pointer;
+      font-size: 14px;
     }
 
-    .tab:hover {
-      background: rgba(15, 118, 110, .08);
-    }
-
+    .tab:hover { background: rgba(15,118,110,.08); }
     .tab.active {
-      border-color: rgba(15, 118, 110, .35);
-      background: #e2f3ef;
-      color: #0b4f49;
-      font-weight: 700;
+      background: var(--green-soft);
+      border-color: rgba(15,118,110,.36);
+      color: var(--accent-dark);
+      font-weight: 800;
     }
 
     main {
-      padding: 34px clamp(20px, 4vw, 54px) 70px;
-      max-width: 1180px;
       width: 100%;
+      max-width: 1240px;
+      padding: 34px clamp(18px, 4vw, 54px) 74px;
     }
 
-    .topbar {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
+    .top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 18px;
-      margin-bottom: 22px;
+      align-items: start;
+      margin-bottom: 18px;
     }
 
-    .platform-title {
+    .title {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(30px, 4vw, 48px);
-      letter-spacing: 0;
-      line-height: 1.05;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1;
     }
 
-    .platform-note {
+    .strategy {
+      margin: 10px 0 0;
+      max-width: 820px;
       color: var(--muted);
-      margin: 8px 0 0;
-      max-width: 760px;
-      line-height: 1.65;
+      line-height: 1.7;
+      font-size: 15px;
     }
 
-    .quick-actions {
+    .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
       justify-content: flex-end;
+      gap: 9px;
     }
 
-    button.copy {
-      min-height: 38px;
-      border: 1px solid #0f766e;
-      background: var(--accent);
-      color: white;
+    button, .link-btn {
+      min-height: 36px;
+      border: 1px solid var(--accent);
       border-radius: 7px;
-      padding: 9px 13px;
-      cursor: pointer;
-      font-weight: 700;
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 12px;
       font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
       white-space: nowrap;
     }
 
-    button.copy.secondary {
+    button.secondary, .link-btn.secondary {
       background: var(--paper);
       color: var(--accent);
     }
 
-    button.copy:hover {
+    button.ghost {
+      border-color: var(--line);
+      background: #f8f3ea;
+      color: var(--ink);
+    }
+
+    button:hover, .link-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(15, 118, 110, .16);
+      box-shadow: 0 9px 18px rgba(15,118,110,.16);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      align-items: start;
-    }
-
-    .field {
-      background: rgba(255, 250, 242, .94);
+    .panel {
       border: 1px solid var(--line);
       border-radius: 8px;
+      background: rgba(255,253,248,.96);
+      box-shadow: var(--shadow);
       overflow: hidden;
-      box-shadow: 0 14px 38px rgba(83, 69, 50, .08);
+      margin-bottom: 16px;
     }
 
-    .field.full { grid-column: 1 / -1; }
-
-    .field-head {
+    .panel-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       padding: 12px 14px;
+      background: #ede5d7;
       border-bottom: 1px solid var(--line);
-      background: #f0e6d7;
     }
 
-    .field h2 {
+    .panel-head h2 {
       margin: 0;
       font-size: 15px;
-      letter-spacing: 0;
     }
 
-    .content {
-      padding: 15px;
-      white-space: pre-wrap;
-      line-height: 1.72;
-      font-size: 15px;
-      color: #2e2a25;
-      max-height: 520px;
-      overflow: auto;
+    .body {
+      padding: 16px;
     }
 
-    .content.rich {
-      white-space: normal;
-      background: #fffdf8;
-    }
-
-    .content.rich h2 {
-      font-size: 22px;
-      margin: 22px 0 8px;
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .content.rich p {
-      margin: 0 0 14px;
-      line-height: 1.85;
-    }
-
-    .content.rich blockquote {
-      margin: 16px 0;
-      padding: 12px 16px;
-      border-left: 4px solid var(--accent);
-      background: #e9f6f2;
-      color: #0b4f49;
-    }
-
-    .content.rich ul {
-      margin: 8px 0 16px 22px;
-      padding: 0;
-    }
-
-    .content.rich li {
-      margin: 6px 0;
-    }
-
-    .assets {
+    .field-grid {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .field {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffaf1;
+      overflow: hidden;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    .field-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      background: #f4eddf;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .field-content {
       padding: 12px;
-      border-top: 1px solid var(--line);
-      background: #f7efe2;
+      white-space: pre-wrap;
+      line-height: 1.75;
+      font-size: 14px;
     }
 
-    .assets img {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      border-radius: 6px;
-      border: 1px solid rgba(37,34,30,.12);
-      background: #fff;
+    .blocks {
+      display: grid;
+      gap: 12px;
     }
 
-    .asset-path {
-      font-size: 12px;
-      color: var(--muted);
-      padding: 0 14px 12px;
-      word-break: break-all;
+    .block {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffaf1;
+      overflow: hidden;
     }
 
-    code, pre {
-      font-family: "SFMono-Regular", Consolas, monospace;
+    .block-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      background: #f4eddf;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .block h3 {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .insert-note {
+      margin: 0 0 10px;
+      color: var(--warn);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .text {
+      white-space: pre-wrap;
+      line-height: 1.78;
+      font-size: 15px;
+    }
+
+    .text code, pre {
+      font-family: Menlo, Consolas, monospace;
+      background: #eef1ef;
+      color: var(--code);
+      border-radius: 5px;
+      padding: 2px 4px;
     }
 
     pre {
-      background: var(--code);
-      color: #f8fafc;
-      padding: 14px;
-      border-radius: 7px;
+      padding: 10px;
       overflow: auto;
+      white-space: pre;
+    }
+
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .asset {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffaf1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .asset img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .asset.portrait img { aspect-ratio: 3 / 4; }
+
+    .asset-body {
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .asset-title {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .asset-use {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .asset-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .asset-actions button, .asset-actions .link-btn {
+      width: 100%;
+      min-height: 32px;
+      padding: 6px 8px;
+      font-size: 12px;
+    }
+
+    .checklist {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.8;
+      color: var(--muted);
     }
 
     .toast {
       position: fixed;
-      right: 22px;
+      left: 50%;
       bottom: 22px;
-      background: #13251f;
-      color: white;
-      border-radius: 7px;
-      padding: 12px 14px;
-      box-shadow: 0 18px 40px rgba(0,0,0,.2);
+      transform: translateX(-50%);
+      z-index: 10;
+      border-radius: 999px;
+      background: #17231f;
+      color: #fff;
+      padding: 10px 15px;
+      font-size: 13px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.18);
       opacity: 0;
-      transform: translateY(8px);
       pointer-events: none;
       transition: opacity .18s ease, transform .18s ease;
-      font-size: 14px;
     }
 
     .toast.show {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate(-50%, -4px);
     }
 
-    .deerflow-badge {
+    .deerflow {
       position: fixed;
-      left: 18px;
-      bottom: 14px;
-      color: rgba(37, 34, 30, .46);
+      right: 14px;
+      bottom: 12px;
+      z-index: 5;
+      color: rgba(38,35,31,.54);
+      border: 1px solid rgba(38,35,31,.14);
+      background: rgba(255,253,248,.72);
+      backdrop-filter: blur(8px);
+      border-radius: 999px;
+      padding: 6px 10px;
       font-size: 12px;
       text-decoration: none;
-      border: 1px solid rgba(37, 34, 30, .12);
-      padding: 6px 8px;
-      border-radius: 999px;
-      background: rgba(255, 250, 242, .68);
     }
 
-    .deerflow-badge:hover {
-      color: var(--accent);
-      border-color: rgba(15, 118, 110, .28);
-    }
-
-    @media (max-width: 860px) {
-      .shell { grid-template-columns: 1fr; }
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
       aside {
         position: relative;
         height: auto;
         border-right: 0;
         border-bottom: 1px solid var(--line);
       }
-      nav {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .topbar { display: block; }
-      .quick-actions { justify-content: flex-start; margin-top: 14px; }
-      .grid { grid-template-columns: 1fr; }
-      .deerflow-badge { position: static; display: inline-block; margin: 0 0 18px 18px; }
+      nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .top { grid-template-columns: 1fr; }
+      .actions { justify-content: flex-start; }
+      .asset-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .field-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+    }
+
+    @media (max-width: 560px) {
+      nav { grid-template-columns: 1fr; }
+      .asset-grid { grid-template-columns: 1fr; }
+      main { padding: 24px 14px 70px; }
+      .title { font-size: 32px; }
     }
   </style>
 </head>
 <body>
-  <div class="shell">
+  <div class="layout">
     <aside>
       <div class="brand">
-        <div class="eyebrow">Publish Kit</div>
-        <h1>Obsidian Inbox 发布助手</h1>
-      <p class="subtitle">按平台复制标题、摘要、正文、标签、脚本，并查看对应配图。公众号正文支持富文本复制。</p>
+        <div class="eyebrow">Publish Desk</div>
+        <h1>全平台发布工作台</h1>
+        <p>按平台复制标题、摘要、正文块和配图。图片复制受浏览器限制，失败时用“打开图片”上传。</p>
       </div>
       <nav id="tabs"></nav>
     </aside>
-    <main>
-      <section class="topbar">
-        <div>
-          <h1 class="platform-title" id="platformTitle"></h1>
-          <p class="platform-note" id="platformNote"></p>
-        </div>
-        <div class="quick-actions" id="quickActions"></div>
-      </section>
-      <section class="grid" id="fields"></section>
-    </main>
+    <main id="app"></main>
   </div>
-  <a class="deerflow-badge" href="https://deerflow.tech" target="_blank" rel="noreferrer">Created By Deerflow</a>
-  <div class="toast" id="toast">已复制</div>
+  <div class="toast" id="toast"></div>
+  <a class="deerflow" href="https://deerflow.tech" target="_blank" rel="noreferrer">Created By Deerflow</a>
 
   <script>
-    const wechatHtml = `
-      <h2>AI 总结之后，知识应该去哪？</h2>
-      <p>很多人现在已经习惯用 AI 总结文章、视频和课程。</p>
-      <p>但我遇到的真实问题是：总结完之后，它去哪了？</p>
-      <p>它可能停留在一次聊天记录里，可能散落在某个收藏夹里，也可能被复制到一个临时文档里。过几天再想找，还是要重新翻链接、重新问 AI、重新整理。</p>
-      <p>所以我做了一个小工具：<strong>Obsidian Inbox</strong>。</p>
-      <p>它不是为了再生成一段更漂亮的摘要，而是想解决“摘要之后”的问题：</p>
-      <ul>
-        <li>这条资料应该放在哪里？</li>
-        <li>半年后还能不能找回来？</li>
-        <li>原文、字幕、转写能不能追溯？</li>
-        <li>快速收藏和深度学习能不能分开？</li>
-        <li>如果平台抓不到正文或字幕，工具会不会编造一篇看似完整的笔记？</li>
-      </ul>
-      <p><strong>Obsidian Inbox 的定位很简单：</strong></p>
-      <blockquote>把 Codex 变成你的本地知识入库员：链接进来，Obsidian 笔记、原始材料和可点击索引自动生成。</blockquote>
-      <p>它的基本流程是：</p>
-      <pre>链接或本地文件
--> 本地脚本采集正文/字幕/转写
--> 生成任务包
--> Codex 读取 compact.md
--> 写入结构化 Obsidian 笔记
--> 原始材料进入 _resources
--> 重建资料库索引、主题索引、用途索引</pre>
-      <p>我刻意把它做成 local-first。</p>
-      <p>也就是说，Vault、字幕、正文、转写、本地视频路径、原始材料，默认都在你自己的机器上处理。它不会默认把你的 Obsidian Vault 上传到云端，也不会尝试绕过登录、验证码、付费墙或私有内容限制。</p>
-      <p>如果抓不到正文、字幕或可靠转写，它不会硬编一篇总结，而是保留失败状态，等你补充材料。</p>
-      <h2>目前支持哪些场景？</h2>
-      <ul>
-        <li>B 站视频：读取元数据和字幕，生成普通或深度 Obsidian 笔记。</li>
-        <li>微信公众号公开文章：抓取公开正文，转成 Markdown，并保留原始材料。</li>
-        <li>本地视频/音频：导入本地文件，结合转写或 ASR 结果生成笔记。</li>
-        <li>普通网页和 YouTube：保守支持，取决于正文和字幕是否可访问。</li>
-        <li>微信视频号、小红书、抖音等：优先走本地导出或本地捕获材料，再进入入库流程。</li>
-      </ul>
-      <p>我最在意的不是“能不能一次性总结”，而是这条资料能不能稳定变成知识库里的一个资产。</p>
-      <p>所以每条资料会有一个主笔记，也会有 <code>_resources</code> 目录保存相关材料。索引层面会维护三个入口：资料库索引、主题索引、用途索引。</p>
-      <p>笔记也分成两种模式：普通总结适合快速入库和第一遍理解；深度总结适合课程、教学、系统学习、本地视频和需要长期复用的内容。</p>
-      <p>举个例子，如果你把一个本地课程视频交给它，理想结果不是一段“本视频主要讲了什么”，而是一篇带问题链、概念地图、机制拆解、实践路径和来源追溯的 Obsidian 深度笔记。</p>
-      <h2>适合谁？</h2>
-      <ul>
-        <li>已经使用 Obsidian，但收藏和资料整理压力很大的人。</li>
-        <li>经常用 AI 总结内容，但结果散落在聊天窗口里的人。</li>
-        <li>看课程、会议、长视频，需要沉淀复盘材料的人。</li>
-        <li>想把 Codex 从一次性问答变成可重复工作流的人。</li>
-        <li>关心本地优先、Markdown、可追溯材料的知识管理用户。</li>
-      </ul>
-      <p>它现在还处在早期阶段，不是一个“全平台一键导入”的万能工具。</p>
-      <blockquote>能自动化的自动化；涉及平台权限、账号安全、内容判断和发布审核的部分，保留人工确认。</blockquote>
-      <p>如果你也有类似需求，可以先看 GitHub 项目：</p>
-      <p><a href="https://github.com/Simuiu/obsidian-inbox">https://github.com/Simuiu/obsidian-inbox</a></p>
-      <p>如果这个方向对你有用，欢迎 Star。也欢迎在 Issue 里告诉我：你最想入库哪类资料、你希望 Obsidian 笔记长什么样、你现在整理视频文章课程时最卡在哪一步。</p>
-      <p>对我来说，这个项目真正想解决的问题不是“AI 能不能总结”，而是：</p>
-      <blockquote>AI 总结之后，知识应该去哪？</blockquote>
-      <p>我的答案是：回到你自己的知识库里，带着来源，带着索引，带着以后还能复用的结构。</p>
-    `;
+    const GH = "https://github.com/Simuiu/obsidian-inbox";
 
-    const data = [
+    const platforms = [
       {
         id: "wechat",
         name: "微信公众号",
-        note: "复制标题、摘要、富文本正文。正文按钮会优先写入 text/html，适合粘到公众号编辑器。",
-        images: ["images/wechat/cards/wechat-01.png","images/wechat/cards/wechat-02.png","images/wechat/cards/wechat-03.png","images/wechat/cards/wechat-04.png","images/wechat/cards/wechat-05.png"],
-        fields: [
-          { label: "标题", key: "title", text: "AI 总结之后，知识应该去哪？我做了一个 Obsidian 本地入库工具" },
-          { label: "摘要", key: "summary", text: "Obsidian Inbox 不是又一个 AI 总结工具，而是一套 local-first 的 Codex + Obsidian 入库工作流：把视频、文章、本地资料整理成可追溯、可索引、可复用的知识库。" },
-          { label: "正文", key: "body", html: wechatHtml, text: stripHtml(wechatHtml), full: true, rich: true }
-        ]
+        strategy: "用完整故事承接读者：先讲 AI 摘要散落的问题，再讲 Obsidian Inbox 的入库流程、边界和适用人群。正文每 300-500 字插一张图，图片位置已经标明。",
+        fields: {
+          "标题候选": "AI 总结完，知识去哪了？\n我把 Codex 接进了 Obsidian\n别让 AI 摘要死在聊天框里",
+          "摘要": "我做了一个 local-first 的 Obsidian 入库工作流：链接或本地文件进来，正文/字幕/转写被整理成 Markdown 笔记，原始材料归档，索引自动重建。",
+          "阅读原文": GH
+        },
+        blocks: [
+          {
+            title: "开头：我真正卡住的不是总结",
+            image: "插图 1 放在本段后",
+            text: "过去一年，我越来越频繁地用 AI 总结文章、视频、课程和会议材料。\n\n一开始很爽：几十分钟的视频，几秒钟就能得到重点；一篇长文章，马上能变成要点列表。\n\n但用久之后，我发现真正麻烦的不是“AI 会不会总结”，而是：\n\n总结完之后，它到底去哪了？\n\n很多摘要最后停在聊天窗口里。过几天想找，要么翻聊天记录，要么重新找链接，要么重新让 AI 总结一遍。\n\n这不是知识管理，只是把临时理解变快了。"
+          },
+          {
+            title: "问题：收藏越来越多，知识却没有沉淀",
+            image: "插图 2 放在流程代码块后",
+            text: "我的资料来源很杂：\n\n- B 站课程和长视频。\n- 微信公众号文章。\n- YouTube、网页、本地视频和音频。\n- 临时看到但来不及处理的资料链接。\n\n如果每条都手动整理，成本太高；如果只交给 AI 总结，结果又很难沉淀。\n\n我真正想要的是一条更完整的链路：\n\n链接或本地文件\n-> 提取正文/字幕/转写\n-> 生成结构化笔记\n-> 保存原始材料\n-> 写入 Obsidian\n-> 自动重建索引\n-> 半年后还能找回来\n\n所以我做了一个小工具：Obsidian Inbox。"
+          },
+          {
+            title: "它不是摘要工具，而是入库工作流",
+            image: "插图 3 放在主流程后",
+            text: "Obsidian Inbox 的定位很简单：\n\n把 Codex 变成你的本地知识入库员。\n\n它做的不是生成一段更漂亮的摘要，而是把外部内容变成 Obsidian 里可追溯、可索引、可复用的 Markdown 笔记。\n\n目前的主流程是：\n\n链接 -> 本地脚本抓字幕/正文 -> 生成 compact.md -> Codex 生成 Obsidian 笔记 -> 重建索引\n\n每条资料会有一个主笔记，也会有 _resources 目录保存原始正文、字幕、转写或本地文件路径。\n\n这样做的好处是：你以后看到的不只是一段摘要，而是一条带来源、带上下文、带索引入口的知识资产。"
+          },
+          {
+            title: "我刻意做了几个限制",
+            image: "插图 4 放在原则列表后",
+            text: "我没有把它包装成“全平台一键导入”。\n\n原因很简单：很多平台有登录、权限、验证码、版权和付费内容边界。一个个人知识管理工具，不应该宣传自己能绕过这些限制。\n\n所以它的原则是：\n\n- 能正常抓到公开正文或字幕，才总结。\n- 抓不到正文、字幕或可靠转写时，不编造内容。\n- Vault、Markdown、原始材料默认留在本机。\n- 涉及账号权限和高风险自动化时，保留人工确认。\n\n这也是我最看重的地方：失败要透明，来源要可追溯。"
+          },
+          {
+            title: "适合哪些人",
+            image: "插图 5 放在适用人群后",
+            text: "我觉得它适合这些人：\n\n- 已经用 Obsidian，但资料库越来越乱。\n- 经常让 AI 总结内容，但总结散落在聊天记录里。\n- 看课程、长视频、会议材料，需要复盘和二次加工。\n- 希望 Codex 不只是问答，而是参与稳定工作流。\n- 关心 Markdown、本地优先、来源归档和可迁移。\n\n如果你只是偶尔总结一篇文章，它可能有点重。\n\n但如果你已经在维护自己的知识库，或者经常收藏很多资料却来不及整理，它解决的是一个很具体的问题：\n\n让内容从“看过/收藏过”，变成“以后真的能找回和复用”。"
+          },
+          {
+            title: "项目地址",
+            image: "文末不再插图，放阅读原文或项目链接",
+            text: "项目已经放在 GitHub：\n\n" + GH + "\n\n如果这个方向对你有用，欢迎 Star。也欢迎在 Issue 里告诉我：\n\n- 你最想入库哪类资料？\n- 你希望 Obsidian 笔记长什么样？\n- 你现在整理视频、文章、课程时最卡在哪一步？\n\n我的答案很朴素：AI 总结之后，知识应该回到你自己的知识库里，带着来源，带着索引，带着以后还能复用的结构。"
+          }
+        ],
+        assets: cards("wechat", 5, ["痛点首图：AI 摘要散落", "流程图：资料入库链路", "结构图：Obsidian 输出", "边界图：失败安全", "结果图：可复用知识库"])
       },
       {
         id: "zhihu",
         name: "知乎",
-        note: "适合回答“如何用 AI 做知识管理 / AI 总结工具是否有用”等问题，语气保持方法论分享。",
-        images: ["images/zhihu/cards/zhihu-01.png","images/zhihu/cards/zhihu-02.png","images/zhihu/cards/zhihu-03.png","images/zhihu/cards/zhihu-04.png","images/zhihu/cards/zhihu-05.png"],
-        fields: [
-          { label: "标题", key: "title", text: "AI 总结工具最大的问题，是总结完之后知识没有地方去" },
-          { label: "摘要", key: "summary", text: "这篇回答重点讲“AI 总结之后的入库工作流”，弱化硬广，最后自然引导 GitHub。" },
-          { label: "正文", key: "body", full: true, text: `我现在越来越觉得，AI 总结本身不是知识管理里最难的一步。
-
-真正难的是：总结之后，这些内容能不能回到一个长期可维护、可检索、可复用的系统里。
-
-很多人的流程是这样的：
-
-1. 看到一篇文章或一个视频。
-2. 扔给 AI 总结。
-3. 得到一段看起来不错的摘要。
-4. 摘要留在聊天记录里。
-5. 几天后忘了它在哪里。
-
-这就会导致一个问题：AI 提高了“当下理解”的效率，但没有解决“长期沉淀”的问题。
-
-所以我会更建议把 AI 总结看成知识管理链路中的一个环节，而不是终点。
-
-一个更完整的流程应该是：
-
-资料进入 -> 提取正文/字幕/转写 -> AI 生成结构化笔记 -> 保留原始材料 -> 写入知识库 -> 建立索引 -> 后续可以复盘、引用、二次加工。
-
-我自己为这个思路做了一个开源小工具：Obsidian Inbox。
-
-它的目标不是再做一个“总结得更好”的工具，而是把 Codex 接进 Obsidian，让视频、文章和本地资料可以变成结构化 Markdown 笔记。
-
-它有几个设计原则：
-
-- local-first：Vault、转写、正文和原始材料默认留在本地。
-- Obsidian-native：输出 Markdown、frontmatter、Wiki links 和索引。
-- 可追溯：原始材料进入 _resources，笔记不只是孤立摘要。
-- 失败安全：抓不到正文、字幕或可靠转写时，不编造总结。
-- 分层总结：普通总结用于快速入库，深度总结用于课程和系统学习。
-
-我觉得这类工具真正适合的人，不是偶尔让 AI 总结一篇文章的人，而是长期使用 Obsidian 做资料库、收藏大量视频文章课程、希望 AI 输出能沉淀进自己知识系统的人。
-
-当然，它不是万能的，也不会绕过平台限制。涉及登录、验证码、付费墙、私有内容的场景，仍然应该遵守平台规则，优先使用自己可访问或本地导出的材料。
-
-如果你也在用 Obsidian，并且遇到“收藏很多但沉淀很少”的问题，可以看看这个项目：
-
-https://github.com/Simuiu/obsidian-inbox
-
-我更推荐把它理解成一个思路：不要只追求让 AI 总结得更快，而是让 AI 生成的东西有地方沉淀。` }
-        ]
+        strategy: "知乎按回答逻辑写：结论先行，承认 AI 总结有用，但指出长期沉淀缺口。项目链接放后段，避免一上来像硬广。",
+        fields: {
+          "标题候选": "AI 总结工具最大的问题：总结完之后没人管\n用 AI 做知识管理，关键不是总结\n为什么我把 Codex 接进了 Obsidian？",
+          "问题方向": "如何用 AI 做知识管理？AI 总结工具真的有用吗？",
+          "摘要": "AI 总结不是知识管理的终点。更完整的链路应该是：资料进入、提取正文/字幕、AI 生成结构化笔记、保存原始材料、写入知识库并建立索引。"
+        },
+        blocks: [
+          { title: "结论先行", image: "图 1 放在本段后", text: "先说结论：AI 总结有用，但它不是知识管理的终点。\n\n很多人现在的流程是：看到文章/视频 -> 扔给 AI -> 得到摘要 -> 摘要留在聊天记录里。\n\n这条链路解决了“当下理解”，但没有解决“长期沉淀”。" },
+          { title: "更完整的链路", image: "图 2 放在流程后", text: "我自己真正需要的是另一条链路：\n\n资料进入 -> 提取正文/字幕/转写 -> AI 生成结构化笔记 -> 保存原始材料 -> 写入 Obsidian -> 建立索引\n\n所以我做了一个开源小工具：Obsidian Inbox。\n\n它不是为了再做一个摘要工具，而是让 Codex 参与 Obsidian 入库流程。" },
+          { title: "5 个设计原则", image: "图 3 放在列表后", text: "核心设计有 5 点：\n\n1. local-first：Vault、正文、字幕和转写默认在本地处理。\n2. Obsidian-native：输出 Markdown、frontmatter、Wiki links 和索引。\n3. 可追溯：原始材料进入 _resources。\n4. 失败安全：抓不到正文/字幕/可靠转写时，不硬编总结。\n5. 分层总结：普通总结用于快速入库，深度总结用于课程和系统学习。" },
+          { title: "适用人群和边界", image: "图 4 放在适用人群后", text: "我觉得它适合的人不是“偶尔总结一篇文章”的用户，而是长期维护资料库的人：\n\n- 收藏很多，但复盘很少。\n- 经常看课程、长视频、技术文章。\n- 希望 AI 输出能进入自己的知识系统。\n- 关心本地文件、Markdown 和可迁移。\n\n它也有边界：不会绕过登录、验证码、付费墙，也不是全平台一键导入。" },
+          { title: "自然引导", image: "图 5 放在项目链接前", text: "项目地址：\n\n" + GH + "\n\n我的观点是：不要只追求让 AI 总结得更快，而要让 AI 生成的东西有地方沉淀。" }
+        ],
+        assets: cards("zhihu", 5, ["痛点图", "链路对比", "设计原则", "适用人群", "项目入口"])
       },
       {
         id: "juejin",
         name: "掘金",
-        note: "技术向 Markdown 发布稿，强调架构、取舍和 local-first。",
-        images: ["images/juejin/cards/juejin-01.png","images/juejin/cards/juejin-02.png","images/juejin/cards/juejin-03.png","images/juejin/cards/juejin-04.png","images/juejin/cards/juejin-05.png"],
-        fields: [
-          { label: "标题", key: "title", text: "如何设计一个 local-first 的 Codex + Obsidian 内容入库工作流" },
-          { label: "摘要", key: "summary", text: "介绍 Obsidian Inbox 为什么不是普通摘要工具，而是由采集脚本、任务包、Codex Skill、资源归档和索引重建组成的本地内容入库工作流。" },
-          { label: "正文 Markdown", key: "body", full: true, text: `这篇文章介绍一个我最近在做的开源项目：Obsidian Inbox。
-
-项目地址：https://github.com/Simuiu/obsidian-inbox
-
-它解决的问题不是“如何让 AI 总结一篇文章”，而是另一个更工程化的问题：
-
-> 如何把外部内容稳定地变成 Obsidian 里可追溯、可索引、可复用的 Markdown 笔记？
-
-## 设计目标
-
-很多 AI 总结工具的结果停留在对话里。对个人知识管理来说，这个结果很脆弱：缺少固定存放位置、来源追溯、统一 frontmatter、索引、失败状态，也很难批量复盘。
-
-所以 Obsidian Inbox 采用了一个更偏工作流的设计：
-
-\`\`\`text
-source -> capture script -> task package -> compact.md -> Codex Skill -> Obsidian note -> _resources archive -> rebuilt indexes
-\`\`\`
-
-## 核心结构
-
-任务包通常包含 meta.json、compact.md、prompt.md，以及原始正文、字幕或转写材料。Codex 默认只读取 meta.json、compact.md、prompt.md，避免把完整字幕或正文塞进上下文。
-
-写入 Obsidian 后，每条资源会形成类似结构：
-
-\`\`\`text
-00_资料库/YYMMDD 短标题/YYMMDD 短标题.md
-00_资料库/YYMMDD 短标题/_resources
-\`\`\`
-
-索引则维护资料库索引、主题索引和用途索引。
-
-## 为什么要保留 _resources
-
-AI 生成内容最大的问题之一是“看起来对，但无法回到来源”。所以这个项目会把原始材料归档到 _resources，主笔记只保留总结、重点、时间点、行动清单和资源链接。
-
-## 普通总结和深度总结
-
-普通总结适合快速入库，深度总结适合课程、教学和系统学习。两个模式会写入 frontmatter，例如 summary_mode: "深度"。
-
-## 失败安全
-
-如果正文、字幕或转写抓取失败，任务会保留失败状态。比如微信视频号、本地视频等场景，如果没有转写或 ASR 结果，就不会生成假总结。
-
-## 当前支持
-
-- Bilibili 视频字幕入库。
-- 微信公众号公开文章正文入库。
-- 本地视频/音频导入。
-- 普通网页保守抽取。
-- YouTube 字幕路径部分支持。
-- 微信视频号、小红书、抖音等更适合走本地导出材料。
-
-项目地址：https://github.com/Simuiu/obsidian-inbox
-
-如果你也在做类似工作流，欢迎 Star 或在 Issue 里反馈你希望支持的平台和笔记结构。` },
-          { label: "标签", key: "tags", text: "Obsidian, Codex, AI, Markdown, 知识管理, local-first, 开源项目" }
-        ]
+        strategy: "掘金需要技术可信度。正文按工程设计写，突出 task package、compact.md、_resources、索引和失败安全，不做泛泛营销。",
+        fields: {
+          "标题候选": "我做了一个 local-first 的 Codex + Obsidian 入库工作流\n如何把 AI 摘要变成可追溯的 Obsidian 笔记\nObsidian Inbox：用 Codex 自动整理外部资料",
+          "摘要": "本文介绍 Obsidian Inbox 的设计：采集脚本生成任务包，Codex 读取 compact.md，输出 Obsidian 笔记，原始材料进入 _resources，并重建索引。"
+        },
+        blocks: [
+          { title: "项目和问题", image: "图 1 放在背景痛点后", text: "项目地址：\n" + GH + "\n\nObsidian Inbox 解决的不是“如何总结一篇文章”，而是：如何把外部内容稳定地变成 Obsidian 里可追溯、可索引、可复用的 Markdown 笔记？\n\n普通 AI 摘要工具的问题是结果太脆弱：摘要停留在聊天窗口、没有统一 frontmatter、没有来源归档、没有索引，失败时还容易产生看起来完整的幻觉内容。" },
+          { title: "总体流程", image: "图 2 放在流程后", text: "总体流程：\n\nsource -> capture script -> task package -> compact.md -> Codex Skill -> Obsidian note -> _resources archive -> rebuilt indexes\n\n任务包通常包含 meta.json、compact.md、prompt.md，以及原始正文、字幕或转写材料。Codex 默认只读取低 token 材料，避免把完整字幕塞进上下文。" },
+          { title: "输出结构", image: "图 3 放在目录结构后", text: "Obsidian 输出结构：\n\n00_资料库/YYMMDD 短标题/YYMMDD 短标题.md\n00_资料库/YYMMDD 短标题/_resources\n\n索引层面维护总索引、主题索引、用途索引。主笔记保留总结、重点、时间点、行动清单和资源链接；原始材料留在 _resources。" },
+          { title: "关键取舍", image: "图 4 放在取舍列表后", text: "我没有追求全平台一键抓取。项目更强调：\n\n- local-first：本地 Vault 和原始材料优先。\n- 失败安全：没有正文/字幕/可靠转写时不生成完整总结。\n- 低 token：Codex 读 compact 材料。\n- 可回溯：source ID、原始材料、资源目录都保留。\n- 人工边界：账号权限、平台限制、版权边界不做危险自动化。" },
+          { title: "适用场景", image: "图 5 放在结尾前", text: "适合 Obsidian 用户、AI Agent / Codex 工作流用户、课程和长视频资料整理、需要来源追溯的个人知识库。\n\n不适合想绕过登录、验证码、付费墙的人，也不适合只想临时总结一段文本的人。\n\n欢迎 Star 或提 Issue：\n" + GH }
+        ],
+        assets: cards("juejin", 5, ["背景痛点", "架构流程", "目录结构", "技术取舍", "适用场景"])
       },
       {
         id: "v2ex",
         name: "V2EX",
-        note: "建议节点 create / programmer / share，优先 create。",
-        images: ["images/v2ex/cards/v2ex-01.png","images/v2ex/cards/v2ex-02.png","images/v2ex/cards/v2ex-03.png","images/v2ex/cards/v2ex-04.png","images/v2ex/cards/v2ex-05.png"],
-        fields: [
-          { label: "标题", key: "title", text: "做了一个 Codex + Obsidian 的本地内容入库工具，想听听知识管理用户的反馈" },
-          { label: "正文", key: "body", full: true, text: `最近做了一个小工具：Obsidian Inbox。
-
-GitHub：https://github.com/Simuiu/obsidian-inbox
-
-它不是普通 AI 摘要工具，主要想解决“AI 总结之后，内容到底放到哪里”的问题。
-
-目前的流程大概是：
-
-链接或本地文件 -> 本地脚本提取正文/字幕/转写 -> 生成任务包 -> Codex 生成结构化 Obsidian 笔记 -> 原始材料归档到 _resources -> 重建资料库索引、主题索引、用途索引。
-
-现在已经支持：
-
-- B 站视频字幕入库。
-- 微信公众号公开文章正文入库。
-- 本地视频/音频导入。
-- 普通总结 / 深度总结。
-- 失败安全：抓不到正文或字幕时不编造总结。
-
-我想验证的是：对 Obsidian 用户来说，“内容入库”是不是比“单次总结”更值得做。
-
-也想听听大家的反馈：
-
-1. 你们平时会把视频/文章系统整理进 Obsidian 吗？
-2. 更需要支持哪些来源？
-3. 生成的笔记结构应该更短，还是更适合深度学习？
-4. 这种 Codex Skill + 本地脚本的形式，对你来说安装门槛高不高？
-
-先感谢任何建议。` },
-          { label: "评论区预案", key: "comments", full: true, text: `如果有人问是不是会上传 Vault：
-
-默认不会。这个项目是 local-first，Vault、正文、字幕和转写都在本地处理。除非你自己接入外部模型或同步工具，否则项目本身不上传你的 Vault。
-
-如果有人问是不是绕过平台限制：
-
-不会。抓不到正文、字幕或可靠转写时会保留失败状态，不会绕过登录、验证码、付费墙，也不会编造总结。` }
-        ]
+        strategy: "V2EX 用开源自荐口吻，短、直接、说明早期限制和希望获得的反馈。不要包装成第三方推荐，也不要夸张转化。",
+        fields: {
+          "节点建议": "优先：分享创造。如果你判断更像推广，就发推广节点。",
+          "标题候选": "分享一个把 Codex 接进 Obsidian 的本地入库工具\n做了个 Obsidian Inbox：让 AI 摘要不要死在聊天记录里\n开源自荐：用 Codex 半自动整理视频/文章到 Obsidian"
+        },
+        blocks: [
+          { title: "主帖全文", image: "图片不强制插入，可在末尾或评论补充", text: "大家好，分享一个我最近在做的小工具：Obsidian Inbox。\n\nGitHub：\n" + GH + "\n\n它解决的问题不是“AI 怎么总结得更好”，而是“总结完之后怎么进入自己的知识库”。\n\n现在的主流程是：\n链接 -> 本地脚本抓正文/字幕 -> 生成任务包 -> Codex 写 Obsidian 笔记 -> 重建索引\n\n我自己遇到的痛点是：视频、公众号文章、本地课程资料越来越多，AI 摘要也越来越多，但最后都散落在聊天记录或临时文档里，长期找不到。\n\n所以这个项目更关注：\n- Markdown 和 Obsidian Vault。\n- 原始材料归档到 _resources。\n- 总索引、主题索引、用途索引。\n- 抓不到正文/字幕时不编造总结。\n- 能本地处理就本地处理。\n\n它现在还是早期项目，不是“全平台一键导入”，也不会绕过登录、验证码、付费墙。\n\n想听听大家的反馈：\n- 你们会把 AI 总结结果放到哪里？\n- 如果是 Obsidian 用户，你希望笔记结构长什么样？\n- 这种半自动 Agent 工作流，对你有没有实际价值？" }
+        ],
+        assets: cards("v2ex", 5, ["可选首图", "流程补充", "结构补充", "边界说明", "GitHub CTA"])
       },
       {
         id: "jike",
         name: "即刻",
-        note: "更轻量、真实，适合先测反馈。",
-        images: ["images/jike/cards/jike-01.png","images/jike/cards/jike-02.png","images/jike/cards/jike-03.png","images/jike/cards/jike-04.png","images/jike/cards/jike-05.png"],
-        fields: [
-          { label: "正文", key: "body", full: true, text: `最近做了一个小工具：Obsidian Inbox。
-
-它想解决的不是“让 AI 再总结一次”，而是“AI 总结之后，知识到底去哪”。
-
-现在的流程是：链接/本地资料进来，本地脚本提取正文、字幕或转写，Codex 写成 Obsidian 笔记，原始材料放进 _resources，最后重建资料库索引、主题索引和用途索引。
-
-我给它的定位是：
-
-把 Codex 变成你的本地知识入库员。
-
-目前支持 B 站、微信公众号公开文章、本地视频/音频等场景。抓不到材料时不会硬编总结。
-
-项目还很早期，想找一些 Obsidian / AI 工具 / 知识管理用户试试。
-
-GitHub：https://github.com/Simuiu/obsidian-inbox
-
-如果你也有“收藏很多但沉淀很少”的问题，欢迎看看，也欢迎提 Issue 告诉我你最想入库什么资料。` }
-        ]
-      },
-      {
-        id: "bilibili",
-        name: "B 站",
-        note: "用于 5-8 分钟录屏演示。先复制标题、简介、标签和置顶评论。",
-        images: ["images/bilibili/final-covers/bilibili-cover-01.png","images/bilibili/final-covers/bilibili-cover-02.png","images/bilibili/final-covers/bilibili-cover-03.png","images/bilibili/final-covers/bilibili-cover-04.png","images/bilibili/final-covers/bilibili-cover-05.png"],
-        fields: [
-          { label: "标题", key: "title", text: "我做了一个 Codex Skill：把视频和文章自动整理进 Obsidian" },
-          { label: "简介", key: "description", full: true, text: `这期演示一个我最近做的开源工具：Obsidian Inbox。
-
-它不是普通 AI 总结工具，而是一个 local-first 的 Codex + Obsidian 内容入库工作流：把视频、文章、本地资料整理成结构化 Markdown 笔记，保留原始材料，并自动重建资料库索引、主题索引和用途索引。
-
-GitHub：
-https://github.com/Simuiu/obsidian-inbox
-
-你可以在 Issue 里反馈最想支持的平台或笔记结构。` },
-          { label: "标签", key: "tags", text: "Obsidian, Codex, AI工具, 知识管理, Markdown, 开源工具, 效率工具, 第二大脑" },
-          { label: "置顶评论", key: "pinned", text: "项目地址：https://github.com/Simuiu/obsidian-inbox\n\n这不是“总结一次”的工具，而是把视频、文章和本地资料沉淀进 Obsidian 的本地入库工作流。欢迎 Star，也欢迎在 Issue 里反馈你最想支持的平台。" },
-          { label: "视频脚本", key: "script", full: true, text: `大家好，这期分享一个我最近做的小工具：Obsidian Inbox。
-
-它的目标不是再做一个 AI 总结工具，而是解决另一个更实际的问题：AI 总结之后，知识应该去哪？
-
-很多时候我们把视频、文章、课程丢给 AI，总结结果看起来不错，但最后停留在聊天记录里。过几天想找，还是找不到。
-
-所以我做了一个 Codex + Obsidian 的本地内容入库工作流。
-
-第一步，我在 Codex 里输入一个链接，或者指定一个本地视频文件。
-
-第二步，本地脚本会生成任务包。这里面包括元数据、compact.md 和 prompt.md。Codex 默认只读 compact，不需要把完整字幕都塞进上下文。
-
-第三步，Codex 会根据任务包生成 Obsidian 笔记。普通内容可以生成普通总结，课程和长视频可以生成深度总结。
-
-第四步，原始材料会归档到 _resources，比如字幕、正文、转写、普通总结归档等。这样以后你不是只有一段摘要，而是能回到来源。
-
-第五步，脚本会重建三个索引：资料库索引、主题索引和用途索引。
-
-这就是我想做的事情：不是让 AI 总结完就结束，而是让内容真正进入你的知识库。
-
-它目前支持 B 站视频、微信公众号公开文章、本地视频/音频，也有普通网页和 YouTube 字幕的部分支持。
-
-边界也说清楚：它不会绕过登录、验证码、付费墙。抓不到正文或字幕时，不会编造总结。
-
-如果你也用 Obsidian，或者想把 Codex 变成一个可重复执行的本地工作流，可以看看 GitHub 项目。链接放在简介和置顶评论。
-
-欢迎 Star，也欢迎提 Issue 告诉我你最想支持什么资料。` }
-        ]
+        strategy: "即刻像个人动态，重点是一个问题引发讨论：AI 总结完放哪里。不要长篇技术说明，图片按信息流顺序上传。",
+        fields: {
+          "正文": "我最近把“AI 总结”往前推了一步。\n\n以前是：看到文章/视频 -> 扔给 AI -> 得到摘要 -> 摘要躺在聊天记录里。\n\n现在我想要的是：摘要直接回到 Obsidian，带来源、带原始材料、带索引，以后还能找回来。\n\n所以做了个开源小工具：Obsidian Inbox。\n\n它的大概流程：链接/本地文件 -> 抓正文/字幕/转写 -> Codex 写成 Obsidian 笔记 -> 归档 _resources -> 重建索引\n\n我比较在意几个点：本地优先、不硬编、输出 Markdown、不绕过平台限制。\n\n项目在这里：\n" + GH + "\n\n很好奇大家：你们现在让 AI 总结完的内容，最后都放哪？"
+        },
+        blocks: [],
+        assets: cards("jike", 5, ["动态首图", "流程图", "Obsidian 结构", "边界说明", "GitHub CTA"])
       },
       {
         id: "xiaohongshu",
         name: "小红书",
-        note: "先用图文卡片测试。正文不要太技术，突出前后对比。",
-        images: ["images/xiaohongshu/final-cards/xiaohongshu-final-01.png","images/xiaohongshu/final-cards/xiaohongshu-final-02.png","images/xiaohongshu/final-cards/xiaohongshu-final-03.png","images/xiaohongshu/final-cards/xiaohongshu-final-04.png","images/xiaohongshu/final-cards/xiaohongshu-final-05.png","images/xiaohongshu/final-cards/xiaohongshu-final-06.png"],
-        fields: [
-          { label: "标题", key: "title", text: "AI 总结完还是找不到？我把它接进 Obsidian 了" },
-          { label: "正文", key: "body", full: true, text: `我最近做了一个给 Obsidian 用的小工具：Obsidian Inbox。
-
-它不是普通 AI 总结工具，而是把视频、文章、本地资料整理成 Obsidian 笔记的入库流程。
-
-以前的问题是：
-
-- 收藏很多，但很少复盘。
-- AI 总结完，结果留在聊天记录里。
-- 过几天想找，又要重新翻链接。
-- 原文、字幕、转写没有统一保存。
-
-现在的流程是：
-
-链接或本地文件进来，Codex 帮我写成结构化 Obsidian 笔记，原始材料放进 _resources，最后自动更新资料库索引。
-
-我最喜欢的是它不是只生成一段摘要，而是会变成知识库里的一条记录。
-
-适合 Obsidian 用户、经常看课程和长视频的人、用 AI 总结很多内容但很难沉淀的人。
-
-项目已经开源：
-https://github.com/Simuiu/obsidian-inbox` },
-          { label: "话题", key: "tags", text: "#Obsidian #AI工具 #知识管理 #效率工具 #第二大脑 #Markdown #开源项目 #学习方法" },
-          { label: "6 页图文卡片", key: "cards", full: true, text: `第 1 页：AI 总结完，为什么还是找不到？
-
-第 2 页：因为总结结果经常留在聊天记录里，没有真正进入知识库。
-
-第 3 页：我做了一个 Obsidian Inbox：把 Codex 变成本地知识入库员。
-
-第 4 页：链接、文章、本地视频进来，生成 Obsidian 笔记，原始材料进入 _resources。
-
-第 5 页：不是一次性摘要，而是可追溯、可索引、可复用的资料库记录。
-
-第 6 页：适合 Obsidian 用户、课程学习者、AI 工具重度用户。GitHub：Simuiu/obsidian-inbox` }
-        ]
+        strategy: "小红书按图文卡片发布。首图讲痛点，后续卡片讲旧流程、新流程、结果、适用人群和边界。正文短，话题明确。",
+        fields: {
+          "标题候选": "AI 总结完别再丢聊天框了\nObsidian 用户真的需要这个流程\n我让 Codex 自动整理资料库了",
+          "正文": "我之前用 AI 总结文章和视频，最大的问题不是总结不够快，而是总结完之后找不到。\n\n后来我做了一个本地工作流：Obsidian Inbox。\n\n它会把链接/本地文件整理成 Obsidian 笔记，保留原始材料，并自动重建索引。\n\n适合：Obsidian 用户、收藏很多资料但没时间整理的人、经常看课程/长视频/技术文章的人、想把 Codex 变成固定工作流的人。\n\n它不是全平台一键下载，也不会绕过登录和付费墙。\n\n但如果你想让 AI 摘要真正回到自己的知识库里，这个方向可以试试。\n\nGitHub：Simuiu/obsidian-inbox\n\n#Obsidian #AI工具 #知识管理 #Codex #效率工具 #开源项目"
+        },
+        blocks: [],
+        assets: finalXhs()
+      },
+      {
+        id: "bilibili",
+        name: "B 站",
+        strategy: "B 站先上传视频，再选封面。标题用问题词 + 方案词，简介给章节和项目地址，置顶评论引导 Star/Issue。",
+        fields: {
+          "标题候选": "AI 总结完别丢了：我把 Codex 接进 Obsidian\nObsidian + Codex：自动整理视频和文章资料\n我做了个本地知识入库工具 Obsidian Inbox",
+          "简介": "很多 AI 总结最后都留在聊天记录里。这个视频演示我做的开源项目 Obsidian Inbox：把链接、本地视频、文章资料整理成 Obsidian Markdown 笔记，并保留原始材料和索引。\n\nGitHub：\n" + GH + "\n\n章节：\n00:00 AI 总结之后的问题\n00:18 Obsidian Inbox 是什么\n00:42 本地入库流程\n01:10 原始材料和索引\n01:35 适用场景和边界\n01:55 GitHub 项目地址",
+          "标签": "Obsidian, AI工具, Codex, 知识管理, 开源项目, Markdown",
+          "置顶评论": "项目地址：" + GH + "\n\n如果你也有“AI 总结完不知道放哪”的问题，可以试试这个方向。欢迎 Star，也欢迎提 Issue 说说你想入库哪类资料。",
+          "视频文件": "video-assets/bilibili-slideshow.mp4"
+        },
+        blocks: [],
+        assets: biliAssets()
       },
       {
         id: "wechat-video",
         name: "视频号",
-        note: "60 秒短视频脚本，适合录屏 + 字幕。",
-        images: ["images/wechat-video/cards/wechat-video-01.png","images/wechat-video/cards/wechat-video-02.png","images/wechat-video/cards/wechat-video-03.png","images/wechat-video/cards/wechat-video-04.png","images/wechat-video/cards/wechat-video-05.png"],
-        fields: [
-          { label: "标题", key: "title", text: "AI 总结之后，知识应该去哪？" },
-          { label: "描述", key: "description", text: "我做了一个 Obsidian Inbox：把 Codex 变成你的本地知识入库员。链接、文章、本地视频进来，生成 Obsidian 笔记，保留原始材料，并重建索引。\n\nGitHub：Simuiu/obsidian-inbox" },
-          { label: "60 秒脚本", key: "script", full: true, text: `你有没有遇到过这种情况？
-
-让 AI 总结了一篇文章或一个视频，当时觉得很有用，但过几天就找不到了。
-
-问题不是 AI 不会总结，而是总结之后没有进入你的知识库。
-
-所以我做了一个 Obsidian Inbox。
-
-它可以把链接、文章、本地视频交给 Codex，生成结构化 Obsidian 笔记。
-
-原始材料会放进 _resources，笔记会进入资料库，索引也会自动更新。
-
-它不是一次性摘要，而是一个本地内容入库工作流。
-
-如果抓不到正文或字幕，它不会硬编总结。
-
-适合 Obsidian 用户、课程学习者，以及想把 AI 输出长期沉淀下来的人。
-
-项目已经开源，GitHub 搜索：Simuiu/obsidian-inbox。` }
-        ]
+        strategy: "视频号文案短，第一屏直接给问题和结果。先上传视频，再用第一张图做封面/首帧参考。",
+        fields: {
+          "标题候选": "AI 总结完，别丢聊天框\n我把 Codex 接进 Obsidian\n资料自动入库到 Obsidian",
+          "文案": "AI 总结之后，知识应该去哪？\n\n我做了一个本地工作流：Obsidian Inbox。\n\n链接或本地文件进来，Codex 帮我整理成 Obsidian 笔记，原始材料进 _resources，索引自动重建。\n\n它不是全平台一键下载，也不会绕过登录、验证码和付费墙。\n\n它解决的是一个更朴素的问题：让 AI 摘要回到自己的知识库里。\n\nGitHub：Simuiu/obsidian-inbox\n\n#Obsidian #AI工具 #Codex #知识管理 #开源项目",
+          "视频文件": "video-assets/wechat-video-slideshow.mp4"
+        },
+        blocks: [],
+        assets: cards("wechat-video", 5, ["封面/首帧", "问题卡", "流程卡", "结果卡", "GitHub CTA"])
       },
       {
         id: "github",
-        name: "GitHub Release",
-        note: "如果后续需要做正式 Release，可复制这份草稿。不要在未确认 tag 前直接发布。",
-        images: ["images/github/cards/github-01.png","images/github/cards/github-02.png","images/github/cards/github-03.png","images/github/cards/github-04.png","images/github/cards/github-05.png"],
-        fields: [
-          { label: "标题", key: "title", text: "Obsidian Inbox v0.1：把视频、文章和本地资料整理进 Obsidian" },
-          { label: "正文", key: "body", full: true, text: `Obsidian Inbox 是一个 local-first 的 Codex Skill，用来把外部内容整理成结构化 Obsidian 笔记。
-
-它不是一次性 AI 摘要工具，而是一套内容入库工作流：本地脚本负责采集、归档和索引，Codex 负责理解内容并生成普通总结或深度总结。
-
-当前能力：
-
-- Bilibili 视频字幕入库。
-- 微信公众号公开文章正文入库。
-- 本地视频/音频导入，支持转写或 ASR 路径。
-- 普通总结和深度总结两种笔记模式。
-- 原始材料归档到 _resources/。
-- 自动重建资料库索引、主题索引和用途索引。
-- 抓不到字幕、正文或可靠转写时保留失败状态，不编造总结。
-
-项目地址：
-
-https://github.com/Simuiu/obsidian-inbox
-
-如果你也想把视频、文章和本地资料稳定沉淀进 Obsidian，欢迎 Star 项目，并在 Issue 里告诉我你最想支持哪类资料。` }
-        ]
+        name: "GitHub",
+        strategy: "GitHub 是统一承接页。这里放 About、Topics 和 README 引导语，配图可用于 README 或社媒预览。",
+        fields: {
+          "About": "Local-first Codex workflow for turning videos, articles, and local media into traceable Obsidian notes with archived resources and rebuilt indexes.",
+          "Topics": "obsidian, codex, ai-agents, knowledge-management, markdown, local-first, personal-knowledge-management, automation",
+          "README 引导语": "Obsidian Inbox turns Codex into a local knowledge ingestion assistant: links and local files become structured Obsidian notes, raw materials are archived, and indexes are rebuilt for future retrieval."
+        },
+        blocks: [],
+        assets: cards("github", 5, ["README 首图", "流程说明", "local-first", "索引能力", "Issue CTA"])
       }
     ];
 
-    function stripHtml(html) {
-      const temp = document.createElement("div");
-      temp.innerHTML = html;
-      return temp.innerText.trim();
+    function cards(platform, count, uses) {
+      return Array.from({ length: count }, (_, i) => ({
+        title: `图 ${i + 1}`,
+        path: `images/${platform}/cards/${platform}-${String(i + 1).padStart(2, "0")}.png`,
+        use: uses[i] || `配图 ${i + 1}`,
+        portrait: false
+      }));
+    }
+
+    function finalXhs() {
+      const uses = ["首图：痛点", "旧流程问题", "新工作流", "Obsidian 输出", "适用人群", "边界和 GitHub"];
+      return uses.map((use, i) => ({
+        title: `上传顺序 ${i + 1}`,
+        path: `images/xiaohongshu/final-cards/xiaohongshu-final-${String(i + 1).padStart(2, "0")}.png`,
+        use,
+        portrait: true
+      }));
+    }
+
+    function biliAssets() {
+      return [
+        ...Array.from({ length: 5 }, (_, i) => ({
+          title: i === 0 ? "推荐封面" : `备选封面 ${i + 1}`,
+          path: `images/bilibili/final-covers/bilibili-cover-${String(i + 1).padStart(2, "0")}.png`,
+          use: i === 0 ? "投稿封面优先用这张" : "不满意首图时替换封面",
+          portrait: false
+        })),
+        ...cards("bilibili", 5, ["视频卡 1", "视频卡 2", "视频卡 3", "视频卡 4", "视频卡 5"])
+      ];
     }
 
     const tabs = document.getElementById("tabs");
-    const fields = document.getElementById("fields");
-    const title = document.getElementById("platformTitle");
-    const note = document.getElementById("platformNote");
-    const quick = document.getElementById("quickActions");
+    const app = document.getElementById("app");
     const toast = document.getElementById("toast");
-    let active = data[0].id;
 
     function showToast(message) {
       toast.textContent = message;
       toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 1300);
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove("show"), 2200);
     }
 
-    function legacyCopyText(text) {
-      const area = document.createElement("textarea");
-      area.value = text;
-      area.setAttribute("readonly", "");
-      area.style.position = "fixed";
-      area.style.left = "-9999px";
-      document.body.appendChild(area);
-      area.select();
-      document.execCommand("copy");
-      document.body.removeChild(area);
-    }
-
-    async function copyText(text, label) {
+    async function copyText(text, label = "内容") {
       try {
-        if (!navigator.clipboard) throw new Error("Clipboard API unavailable");
         await navigator.clipboard.writeText(text);
-      } catch (error) {
-        legacyCopyText(text);
+        showToast(`${label}已复制`);
+      } catch (err) {
+        const area = document.createElement("textarea");
+        area.value = text;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+        showToast(`${label}已复制`);
       }
-      showToast(`已复制：${label}`);
     }
 
-    async function copyRich(html, text, label) {
+    async function copyImage(path) {
       try {
-        if (!navigator.clipboard || !window.ClipboardItem) throw new Error("Rich clipboard unavailable");
-        const item = new ClipboardItem({
-          "text/html": new Blob([html], { type: "text/html" }),
-          "text/plain": new Blob([text], { type: "text/plain" })
-        });
-        await navigator.clipboard.write([item]);
-      } catch (error) {
-        legacyCopyText(text);
+        const response = await fetch(path);
+        const blob = await response.blob();
+        const type = blob.type || "image/png";
+        await navigator.clipboard.write([new ClipboardItem({ [type]: blob })]);
+        showToast("图片已复制，可直接粘贴试试");
+      } catch (err) {
+        window.open(path, "_blank");
+        showToast("浏览器限制复制图片，已打开图片，请右键复制或上传");
       }
-      showToast(`已复制：${label}`);
     }
 
-    function renderTabs() {
-      tabs.innerHTML = "";
-      data.forEach(item => {
-        const btn = document.createElement("button");
-        btn.className = `tab${item.id === active ? " active" : ""}`;
-        btn.textContent = item.name;
-        btn.onclick = () => {
-          active = item.id;
-          render();
-        };
-        tabs.appendChild(btn);
+    function platformText(p) {
+      const fields = Object.entries(p.fields).map(([k, v]) => `【${k}】\n${v}`).join("\n\n");
+      const blocks = p.blocks.map(b => `【${b.title}】\n${b.image}\n${b.text}`).join("\n\n");
+      return [fields, blocks].filter(Boolean).join("\n\n");
+    }
+
+    function renderTabs(activeId) {
+      tabs.innerHTML = platforms.map(p => `<button class="tab ${p.id === activeId ? "active" : ""}" data-id="${p.id}">${p.name}</button>`).join("");
+      tabs.querySelectorAll(".tab").forEach(btn => btn.addEventListener("click", () => render(btn.dataset.id)));
+    }
+
+    function render(id = platforms[0].id) {
+      const p = platforms.find(item => item.id === id) || platforms[0];
+      renderTabs(p.id);
+
+      const fieldsHtml = Object.entries(p.fields).map(([label, value]) => `
+        <div class="field ${value.length > 160 ? "full" : ""}">
+          <div class="field-label">
+            <span>${label}</span>
+            <button class="ghost" data-copy="${escapeAttr(value)}" data-label="${label}">复制</button>
+          </div>
+          <div class="field-content">${escapeHtml(value)}</div>
+        </div>
+      `).join("");
+
+      const blocksHtml = p.blocks.length ? `
+        <section class="panel">
+          <div class="panel-head">
+            <h2>正文分段</h2>
+            <button class="secondary" data-copy="${escapeAttr(p.blocks.map(b => b.text).join("\n\n"))}" data-label="正文">复制纯正文</button>
+          </div>
+          <div class="body blocks">
+            ${p.blocks.map(block => `
+              <article class="block">
+                <div class="block-head">
+                  <h3>${block.title}</h3>
+                  <button class="ghost" data-copy="${escapeAttr(block.text)}" data-label="${block.title}">复制本段</button>
+                </div>
+                <div class="body">
+                  <p class="insert-note">${block.image}</p>
+                  <div class="text">${formatText(block.text)}</div>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        </section>
+      ` : "";
+
+      const assetsHtml = `
+        <section class="panel">
+          <div class="panel-head">
+            <h2>配图/视频素材</h2>
+            <button class="secondary" data-copy="${escapeAttr(p.assets.map(a => a.path).join("\n"))}" data-label="素材路径">复制全部路径</button>
+          </div>
+          <div class="body asset-grid">
+            ${p.assets.map(asset => `
+              <article class="asset ${asset.portrait ? "portrait" : ""}">
+                <img src="${asset.path}" alt="${asset.title}">
+                <div class="asset-body">
+                  <p class="asset-title">${asset.title}</p>
+                  <p class="asset-use">${asset.use}</p>
+                  <div class="asset-actions">
+                    <button class="ghost" data-img="${asset.path}">复制图片</button>
+                    <a class="link-btn secondary" href="${asset.path}" target="_blank" rel="noreferrer">打开</a>
+                    <button class="ghost" data-copy="${asset.path}" data-label="图片路径">复制路径</button>
+                    <button class="ghost" data-copy="${escapeAttr(asset.use)}" data-label="图片用途">复制用途</button>
+                  </div>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        </section>
+      `;
+
+      app.innerHTML = `
+        <div class="top">
+          <div>
+            <h2 class="title">${p.name}</h2>
+            <p class="strategy">${p.strategy}</p>
+          </div>
+          <div class="actions">
+            <button data-copy="${escapeAttr(platformText(p))}" data-label="${p.name}全部内容">复制本平台全部</button>
+            <button class="secondary" data-copy="${GH}" data-label="GitHub 链接">复制 GitHub</button>
+          </div>
+        </div>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>发布字段</h2>
+            <button class="secondary" data-copy="${escapeAttr(Object.values(p.fields).join("\n\n"))}" data-label="发布字段">复制全部字段</button>
+          </div>
+          <div class="body field-grid">${fieldsHtml}</div>
+        </section>
+
+        ${blocksHtml}
+        ${assetsHtml}
+
+        <section class="panel">
+          <div class="panel-head"><h2>发布前检查</h2></div>
+          <div class="body">
+            <ul class="checklist">
+              <li>标题选择 1 个，不要把 3 个候选都发出去。</li>
+              <li>长文平台按图位插入图片；小红书按上传顺序发图；B 站/视频号先传视频再配封面。</li>
+              <li>项目链接统一使用 ${GH}；小红书/视频号无法放链接时写 Simuiu/obsidian-inbox。</li>
+              <li>不要承诺全平台一键、绕过登录、绕过验证码或付费墙。</li>
+              <li>发布后把链接、时间、阅读/播放、点赞、收藏、评论记录到复盘表。</li>
+            </ul>
+          </div>
+        </section>
+      `;
+
+      app.querySelectorAll("[data-copy]").forEach(el => {
+        el.addEventListener("click", () => copyText(el.dataset.copy, el.dataset.label || "内容"));
+      });
+      app.querySelectorAll("[data-img]").forEach(el => {
+        el.addEventListener("click", () => copyImage(el.dataset.img));
       });
     }
 
-    function render() {
-      renderTabs();
-      const item = data.find(x => x.id === active);
-      title.textContent = item.name;
-      note.textContent = item.note;
-      quick.innerHTML = "";
-      fields.innerHTML = "";
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#39;"
+      }[char]));
+    }
 
-      const copyAll = document.createElement("button");
-      copyAll.className = "copy";
-      copyAll.textContent = "复制本平台全部文案";
-      copyAll.onclick = () => copyText(item.fields.map(field => `【${field.label}】\n${field.text}`).join("\n\n"), `${item.name}全部文案`);
-      quick.appendChild(copyAll);
+    function escapeAttr(value) {
+      return escapeHtml(value).replace(/\n/g, "&#10;");
+    }
 
-      if (item.images && item.images.length) {
-        const assets = document.createElement("article");
-        assets.className = "field full";
-        const head = document.createElement("div");
-        head.className = "field-head";
-        const h2 = document.createElement("h2");
-        h2.textContent = `配图素材（${item.images.length} 张）`;
-        const copyPaths = document.createElement("button");
-        copyPaths.className = "copy";
-        copyPaths.textContent = "复制图片路径";
-        copyPaths.onclick = () => copyText(item.images.join("\n"), `${item.name}图片路径`);
-        head.appendChild(h2);
-        head.appendChild(copyPaths);
-        const grid = document.createElement("div");
-        grid.className = "assets";
-        item.images.forEach(src => {
-          const img = document.createElement("img");
-          img.src = src;
-          img.alt = src;
-          grid.appendChild(img);
-        });
-        const path = document.createElement("div");
-        path.className = "asset-path";
-        path.textContent = item.images.join(" · ");
-        assets.appendChild(head);
-        assets.appendChild(grid);
-        assets.appendChild(path);
-        fields.appendChild(assets);
-      }
-
-      item.fields.forEach(field => {
-        const q = document.createElement("button");
-        q.className = "copy secondary";
-        q.textContent = `复制${field.label}`;
-        q.onclick = () => field.html ? copyRich(field.html, field.text, field.label) : copyText(field.text, field.label);
-        quick.appendChild(q);
-
-        const card = document.createElement("article");
-        card.className = `field${field.full ? " full" : ""}`;
-        const head = document.createElement("div");
-        head.className = "field-head";
-        const h2 = document.createElement("h2");
-        h2.textContent = field.label;
-        const copy = document.createElement("button");
-        copy.className = "copy";
-        copy.textContent = "复制";
-        copy.onclick = () => field.html ? copyRich(field.html, field.text, field.label) : copyText(field.text, field.label);
-        head.appendChild(h2);
-        head.appendChild(copy);
-
-        const body = document.createElement("div");
-        body.className = `content${field.rich ? " rich" : ""}`;
-        if (field.html) body.innerHTML = field.html;
-        else body.textContent = field.text;
-
-        card.appendChild(head);
-        card.appendChild(body);
-        fields.appendChild(card);
-      });
+    function formatText(value) {
+      const escaped = escapeHtml(value);
+      return escaped.replace(/```([\s\S]*?)```/g, "<pre>$1</pre>").replace(/\n/g, "<br>");
     }
 
     render();
