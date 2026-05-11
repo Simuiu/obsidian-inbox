@@ -33,6 +33,11 @@
 | 03 | GitHub About 与 Topics 发布包 | `marketing/publish-packets/2026-05-08-github-launch/github-about-and-topics.md` | GitHub 承接页元信息和 Star CTA |
 | 04 | Obsidian Inbox v0.1 发布草稿 | `marketing/publish-packets/2026-05-08-github-launch/release-draft.md` | GitHub Release 或外部发布说明草稿 |
 | 05 | Obsidian Inbox 全平台首轮发布物料包 | `marketing/publish-packets/2026-05-11-full-platform-launch/all-platform-copy.md` | 公众号、知乎、掘金、V2EX、即刻、B 站、小红书、视频号等平台发布文案 |
+| 06 | Obsidian Inbox 视频与图文素材包 | `marketing/publish-packets/2026-05-11-full-platform-launch/visual-video-assets.md` | B 站、视频号、小红书脚本、分镜、字幕、配图资产 |
+| 07 | Obsidian Inbox 全平台配图生成清单 | `marketing/publish-packets/2026-05-11-full-platform-launch/platform-image-prompts.md` | 每个平台不少于 5 张配图的 image-2 生成规则与提示词 |
+| 08 | Obsidian Inbox 平台发布操作辅助 | `marketing/platform-rules/08-platform-publishing-operations.md` | 各平台复制、上传配图、草稿/半自动发布操作说明 |
+| 09 | Obsidian Inbox 发布记录与复盘模板 | `marketing/reports/09-publishing-record-and-retro.md` | 发布数据记录、评论归类、每周复盘模板 |
+| 10 | Obsidian Inbox 首轮发布顺序执行包 | `marketing/calendar/10-first-round-publishing-sequence.md` | 首轮平台发布顺序和执行检查清单 |
 
 后续编号规则：
 
@@ -58,6 +63,7 @@
 - GitHub 承接页材料。
 - 全平台首轮发布物料包。
 - 本地 HTML 复制助手。
+- 各平台配图素材，每个平台不少于 5 张，并使用 image-2 图像生成能力产出。
 - 发布后的记录与复盘。
 
 复盘节奏：
