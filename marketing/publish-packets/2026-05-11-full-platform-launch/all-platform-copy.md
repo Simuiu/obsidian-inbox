@@ -6,25 +6,12 @@
 
 https://github.com/Simuiu/obsidian-inbox
 
-统一口径：
+这版内容按你对微信公众号的反馈统一重写：
 
-> 把 Codex 变成你的本地知识入库员：链接进来，Obsidian 笔记、原始材料和可点击索引自动生成。
-
-发布边界：
-
-- 不宣传“全平台一键下载”。
-- 不宣传“绕过登录、验证码、付费墙”。
-- 不宣传“无人值守自动运营”。
-- 强调 local-first、可追溯、失败安全、人工确认边界。
-
-配图使用：
-
-- 每个平台至少使用 5 张配图。
-- 微信公众号封面图：`images/wechat/cover-wechat-flow.png`。
-- 长文平台按正文中的“插图位”插入。
-- 小红书按卡片顺序上传。
-- B 站和视频号优先上传视频文件，再上传封面/首帧图。
-- HTML 发布助手会显示每张图的推荐位置、下载图片、打开图片和复制路径。公众号后台对剪贴板图片支持不稳定，图片优先用“图片 -> 本地上传”。
+- 不再给多个标题候选，每个平台只保留一版可直接发布内容。
+- 减少“AI 工具宣传稿”味道，改成更像真人经验、开源自荐和社区讨论。
+- 配图不依赖粘贴，统一按“下载/打开 -> 平台上传”。
+- 不宣传“全平台一键下载”“绕过登录、验证码、付费墙”“无人值守自动运营”。
 
 ## 2. 微信公众号
 
@@ -35,6 +22,10 @@ https://github.com/Simuiu/obsidian-inbox
 ### 摘要
 
 我以前最大的问题不是不会用 AI 总结，而是总结完以后根本找不回来。于是我把 Codex 接进 Obsidian，做了一个把文章、视频和本地资料整理进自己知识库的小工具。
+
+### 封面
+
+`images/wechat/cover-wechat-flow.png`
 
 ### 正文
 
@@ -52,7 +43,7 @@ https://github.com/Simuiu/obsidian-inbox
 
 这件事让我意识到：我缺的不是又一个摘要，而是一个能把资料放回知识库里的入口。
 
-【插图 1：痛点图。放在这里，用 `images/wechat/cards/wechat-01.png`】
+【插图 1：`images/wechat/cards/wechat-01.png`】
 
 #### 我想要的是少做一次重复劳动
 
@@ -64,7 +55,7 @@ https://github.com/Simuiu/obsidian-inbox
 
 下次我再找这条资料，不用翻聊天记录，也不用猜关键词，直接从 Obsidian 的索引里进。
 
-【插图 2：工作流图。放在这里，用 `images/wechat/cards/wechat-02.png`】
+【插图 2：`images/wechat/cards/wechat-02.png`】
 
 #### 我把 Codex 接进 Obsidian 后发生了什么
 
@@ -78,7 +69,7 @@ https://github.com/Simuiu/obsidian-inbox
 
 因为一篇笔记如果没有来源、没有原始材料、没有索引入口，过一段时间还是会变成孤岛。
 
-【插图 3：Obsidian 结构图。放在这里，用 `images/wechat/cards/wechat-03.png`】
+【插图 3：`images/wechat/cards/wechat-03.png`】
 
 #### 有些事我故意不让它做
 
@@ -92,7 +83,7 @@ https://github.com/Simuiu/obsidian-inbox
 
 对我来说，知识库工具最重要的不是显得自动化，而是别把不确定的东西伪装成确定。
 
-【插图 4：失败安全/边界图。放在这里，用 `images/wechat/cards/wechat-04.png`】
+【插图 4：`images/wechat/cards/wechat-04.png`】
 
 #### 它适合的不是所有人
 
@@ -104,7 +95,7 @@ https://github.com/Simuiu/obsidian-inbox
 
 真正有价值的地方，是它把“我看过”往前推了一步，变成“我以后还能找回来”。
 
-【插图 5：结果图。放在这里，用 `images/wechat/cards/wechat-05.png`】
+【插图 5：`images/wechat/cards/wechat-05.png`】
 
 #### 项目地址
 
@@ -120,72 +111,59 @@ https://github.com/Simuiu/obsidian-inbox
 
 ## 3. 知乎
 
-### 标题候选
+### 标题
 
-1. AI 总结工具最大的问题：总结完之后没人管
-2. 用 AI 做知识管理，关键不是总结
-3. 为什么我把 Codex 接进了 Obsidian？
+为什么我现在不太满足于“AI 总结”了？
 
 ### 正文
 
-先说结论：AI 总结有用，但它不是知识管理的终点。
+我觉得 AI 总结当然有用。
 
-很多人现在的流程是：
+但如果你真的长期看文章、课程、长视频，最后会遇到一个很具体的问题：总结完以后，它放哪？
 
-```text
-看到文章/视频 -> 扔给 AI -> 得到摘要 -> 摘要留在聊天记录里
-```
+我自己以前经常这样：
 
-这条链路解决了“当下理解”，但没有解决“长期沉淀”。
+1. 看到一个视频或一篇文章。
+2. 丢给 AI 总结。
+3. 当时觉得很清楚。
+4. 几天后想找某个观点，开始翻聊天记录。
+5. 找不到就重新找链接、重新总结。
 
-我自己真正需要的是另一条链路：
+这条链路提升了当下理解，但没有解决长期沉淀。
 
-```text
-资料进入 -> 提取正文/字幕/转写 -> AI 生成结构化笔记 -> 保存原始材料 -> 写入 Obsidian -> 建立索引
-```
+后来我把目标改了：不追求让 AI 再多写一段摘要，而是让资料直接进入 Obsidian。
 
-所以我做了一个开源小工具：`Obsidian Inbox`。
-
-它不是为了再做一个摘要工具，而是让 Codex 参与 Obsidian 入库流程。
-
-核心设计有 5 点：
-
-1. local-first：Vault、正文、字幕和转写默认在本地处理。
-2. Obsidian-native：输出 Markdown、frontmatter、Wiki links 和索引。
-3. 可追溯：原始材料进入 `_resources`。
-4. 失败安全：抓不到正文/字幕/可靠转写时，不硬编总结。
-5. 分层总结：普通总结用于快速入库，深度总结用于课程和系统学习。
-
-我觉得它适合的人不是“偶尔总结一篇文章”的用户，而是长期维护资料库的人：
-
-- 收藏很多，但复盘很少。
-- 经常看课程、长视频、技术文章。
-- 希望 AI 输出能进入自己的知识系统。
-- 关心本地文件、Markdown 和可迁移。
-
-它也有边界：不会绕过登录、验证码、付费墙，也不是全平台一键导入。
-
-项目地址：
+我做了一个开源小工具，叫 `Obsidian Inbox`：
 
 https://github.com/Simuiu/obsidian-inbox
 
-我的观点是：不要只追求让 AI 总结得更快，而要让 AI 生成的东西有地方沉淀。
+它做的事情比较朴素：链接或本地文件进来，先准备正文、字幕或转写，再让 Codex 按固定结构写成 Obsidian 笔记。原始材料会留在 `_resources`，索引也会更新。
 
-### 配图位置
+我比较看重三个点：
 
-- 图 1：开头痛点后，`images/zhihu/cards/zhihu-01.png`
-- 图 2：两条链路对比后，`images/zhihu/cards/zhihu-02.png`
-- 图 3：5 点设计原则前，`images/zhihu/cards/zhihu-03.png`
-- 图 4：适用人群前，`images/zhihu/cards/zhihu-04.png`
-- 图 5：项目链接前，`images/zhihu/cards/zhihu-05.png`
+- 以后能找回来，而不是只在聊天记录里爽一下。
+- 原始材料能追溯，别只剩一段不知道怎么来的摘要。
+- 抓不到可靠材料时不要硬编，失败状态比假完整更有用。
+
+它不是“万能导入器”，也不会绕过登录、验证码和付费墙。
+
+如果你只是偶尔总结一篇文章，它可能没必要；但如果你长期维护 Obsidian，或者收藏很多视频、课程、文章却一直没整理，它会比较适合。
+
+我的观点是：AI 总结只是入口，真正有价值的是总结之后还能不能回到自己的知识库。
+
+### 配图
+
+- `images/zhihu/cards/zhihu-01.png`
+- `images/zhihu/cards/zhihu-02.png`
+- `images/zhihu/cards/zhihu-03.png`
+- `images/zhihu/cards/zhihu-04.png`
+- `images/zhihu/cards/zhihu-05.png`
 
 ## 4. 掘金
 
-### 标题候选
+### 标题
 
-1. 我做了一个 local-first 的 Codex + Obsidian 入库工作流
-2. 如何把 AI 摘要变成可追溯的 Obsidian 笔记
-3. Obsidian Inbox：用 Codex 自动整理外部资料
+我把 Codex 接进 Obsidian，做了一个本地资料入库工具
 
 ### 正文
 
@@ -193,146 +171,118 @@ https://github.com/Simuiu/obsidian-inbox
 
 https://github.com/Simuiu/obsidian-inbox
 
-`Obsidian Inbox` 解决的不是“如何总结一篇文章”，而是：
+这不是一个“让 AI 摘要更漂亮”的项目。
 
-> 如何把外部内容稳定地变成 Obsidian 里可追溯、可索引、可复用的 Markdown 笔记？
+我真正想解决的是：外部资料怎么稳定进入 Obsidian，而不是散落在聊天记录里。
 
-#### 1. 背景
+## 背景
 
-普通 AI 摘要工具的问题是结果太脆弱：
+我平时会看很多长视频、课程、技术文章和公众号文章。用 AI 总结确实省时间，但总结结果经常有几个问题：
 
-- 摘要停留在聊天窗口。
-- 没有统一 frontmatter。
-- 没有来源归档。
-- 没有索引。
-- 失败时容易产生“看起来完整”的幻觉内容。
+- 留在聊天窗口里，过几天找不到。
+- 没有原始材料，后面想核对很麻烦。
+- 没有统一 frontmatter 和目录结构。
+- 没有索引，资料越多越像一堆碎片。
+- 抓不到正文或字幕时，AI 可能写出一篇看似完整但来源不可靠的内容。
 
-对长期知识管理来说，这些都很致命。
+所以我做了 `Obsidian Inbox`。
 
-#### 2. 总体流程
+## 现在的流程
 
 ```text
-source
--> capture script
--> task package
--> compact.md
--> Codex Skill
--> Obsidian note
--> _resources archive
--> rebuilt indexes
+链接或本地文件
+-> 本地脚本准备正文/字幕/转写
+-> 生成任务包
+-> Codex 读取 compact.md
+-> 写入 Obsidian Markdown
+-> 原始材料进入 _resources
+-> 重建索引
 ```
 
-任务包通常包含：
+这里面我刻意做了一个限制：Codex 默认只读 `meta.json`、`compact.md`、`prompt.md`，不直接把完整字幕塞进上下文。
 
-- `meta.json`：平台、标题、作者、来源 URL、状态等元数据。
-- `compact.md`：给 Codex 读取的低 token 摘要材料。
-- `prompt.md`：当前任务的写作要求。
-- 原始正文、字幕或转写材料。
+## 输出结构
 
-Codex 默认只读取 `meta.json`、`compact.md`、`prompt.md`，避免把完整字幕或正文塞进上下文。
-
-#### 3. Obsidian 输出结构
+每条资料最后会变成类似这样：
 
 ```text
 00_资料库/YYMMDD 短标题/YYMMDD 短标题.md
 00_资料库/YYMMDD 短标题/_resources
 ```
 
-索引层面维护：
+主笔记放总结、重点、时间点、行动清单和资源链接；原始材料留在 `_resources`。
 
-- 总索引。
-- 主题索引。
-- 用途索引。
+这样做的好处是，笔记不是一段孤立摘要，而是有来源、有目录、有后续复盘入口。
 
-笔记正文保留总结、重点、时间点、行动清单和资源链接；原始材料留在 `_resources`，避免主笔记变成材料垃圾场。
+## 边界
 
-#### 4. 关键取舍
+这个项目不追求“全平台一键导入”。
 
-我没有追求“全平台一键抓取”。
+能拿到公开正文或字幕，就继续整理；拿不到可靠材料，就保留失败状态。不绕过登录、验证码、付费墙，也不把不确定内容写成确定结论。
 
-项目更强调：
-
-- local-first：本地 Vault 和原始材料优先。
-- 失败安全：没有正文/字幕/可靠转写时不生成完整总结。
-- 低 token：Codex 读 compact 材料，不直接吞完整 SRT。
-- 可回溯：source ID、原始材料、资源目录都保留。
-- 人工边界：账号权限、平台限制、版权边界不做危险自动化。
-
-#### 5. 适用场景
-
-适合：
+适合的人：
 
 - Obsidian 用户。
-- AI Agent / Codex 工作流用户。
-- 课程、长视频、文章资料整理。
-- 需要来源追溯和长期复盘的个人知识库。
-
-不适合：
-
-- 想要所有平台一键下载的人。
-- 想绕过登录、验证码、付费墙的人。
-- 只想临时总结一段文本的人。
+- 经常看课程、长视频、技术文章的人。
+- 想把 Codex 用在固定本地流程里的人。
+- 关心 Markdown、原始材料和长期复用的人。
 
 欢迎 Star 或提 Issue：
 
 https://github.com/Simuiu/obsidian-inbox
 
-### 配图位置
+### 配图
 
-- 图 1：背景痛点后，`images/juejin/cards/juejin-01.png`
-- 图 2：总体流程后，`images/juejin/cards/juejin-02.png`
-- 图 3：输出结构后，`images/juejin/cards/juejin-03.png`
-- 图 4：关键取舍后，`images/juejin/cards/juejin-04.png`
-- 图 5：适用场景前，`images/juejin/cards/juejin-05.png`
+- `images/juejin/cards/juejin-01.png`
+- `images/juejin/cards/juejin-02.png`
+- `images/juejin/cards/juejin-03.png`
+- `images/juejin/cards/juejin-04.png`
+- `images/juejin/cards/juejin-05.png`
 
 ## 5. V2EX
 
-### 节点建议
+### 节点
 
-优先：`分享创造`。如果你判断更像推广，就发 `推广`。
+`分享创造`
 
-### 标题候选
+### 标题
 
-1. 分享一个把 Codex 接进 Obsidian 的本地入库工具
-2. 做了个 Obsidian Inbox：让 AI 摘要不要死在聊天记录里
-3. 开源自荐：用 Codex 半自动整理视频/文章到 Obsidian
+分享一个把 Codex 接进 Obsidian 的本地资料入库工具
 
 ### 正文
 
-大家好，分享一个我最近在做的小工具：`Obsidian Inbox`。
+大家好，分享一个我最近做的小工具：`Obsidian Inbox`。
 
 GitHub：
 https://github.com/Simuiu/obsidian-inbox
 
-它解决的问题不是“AI 怎么总结得更好”，而是“总结完之后怎么进入自己的知识库”。
+我做它的原因很简单：我经常用 AI 总结文章、视频和课程，但过几天再找，经常不知道摘要在哪个聊天窗口里，原链接也要重新翻。
 
-现在的主流程是：
+所以我想把这件事变成一个更固定的本地流程：
 
 ```text
-链接 -> 本地脚本抓正文/字幕 -> 生成任务包 -> Codex 写 Obsidian 笔记 -> 重建索引
+链接/本地文件 -> 准备正文/字幕/转写 -> Codex 写 Obsidian 笔记 -> 原始材料归档 -> 重建索引
 ```
 
-我自己遇到的痛点是：视频、公众号文章、本地课程资料越来越多，AI 摘要也越来越多，但最后都散落在聊天记录或临时文档里，长期找不到。
+目前它更关注这些点：
 
-所以这个项目更关注：
+- 输出 Markdown，直接进 Obsidian Vault。
+- 原始正文、字幕、转写放在 `_resources`。
+- 抓不到可靠材料时不硬编总结。
+- 总索引、主题索引、用途索引能更新。
+- 本地优先，不默认上传 Vault。
 
-- Markdown 和 Obsidian Vault。
-- 原始材料归档到 `_resources`。
-- 总索引、主题索引、用途索引。
-- 抓不到正文/字幕时不编造总结。
-- 能本地处理就本地处理。
-
-它现在还是早期项目，不是“全平台一键导入”，也不会绕过登录、验证码、付费墙。
+它现在还是早期项目，不是全平台一键导入，也不会绕过登录、验证码、付费墙。
 
 想听听大家的反馈：
 
-- 你们会把 AI 总结结果放到哪里？
-- 如果是 Obsidian 用户，你希望笔记结构长什么样？
-- 这种半自动 Agent 工作流，对你有没有实际价值？
+- 你们现在会把 AI 总结结果放到哪里？
+- Obsidian 用户会希望这种笔记长什么样？
+- 这种半自动资料入库流程，对你有没有实际价值？
 
-### 配图位置
+### 配图
 
-V2EX 不强依赖图片，但这次素材包已准备 5 张，可按需要上传或在评论补充：
+V2EX 可不放图；如果需要，最多放 1 张首图或在评论补充：
 
 - `images/v2ex/cards/v2ex-01.png`
 - `images/v2ex/cards/v2ex-02.png`
@@ -344,66 +294,60 @@ V2EX 不强依赖图片，但这次素材包已准备 5 张，可按需要上传
 
 ### 正文
 
-我最近把“AI 总结”往前推了一步。
+我最近把 Codex 接进了 Obsidian。
 
-以前是：看到文章/视频 -> 扔给 AI -> 得到摘要 -> 摘要躺在聊天记录里。
+原因很简单：我受不了“总结过，但后来找不到”。
 
-现在我想要的是：摘要直接回到 Obsidian，带来源、带原始材料、带索引，以后还能找回来。
+以前看到文章、视频、课程，我会丢给 AI 总结。当时很清楚，过几天想找某个观点，又开始翻聊天记录、翻链接、重新总结。
 
-所以做了个开源小工具：`Obsidian Inbox`。
+所以我做了一个小工具：`Obsidian Inbox`。
 
-它的大概流程：
+它会把链接或本地文件整理成 Obsidian 笔记，原始材料放进 `_resources`，索引也一起更新。
 
-```text
-链接/本地文件 -> 抓正文/字幕/转写 -> Codex 写成 Obsidian 笔记 -> 归档 _resources -> 重建索引
-```
+我比较在意的是：
 
-我比较在意几个点：
-
-- 本地优先，不默认上传 Vault。
-- 抓不到材料就失败，不硬编。
-- 输出是 Markdown，能被 Obsidian 长期管理。
-- 不追求绕过平台限制。
+- 资料以后能找回来。
+- 原文、字幕、转写能留着。
+- 抓不到可靠材料时不要硬编。
+- 不绕过登录、验证码、付费墙。
 
 项目在这里：
 https://github.com/Simuiu/obsidian-inbox
 
-很好奇大家：你们现在让 AI 总结完的内容，最后都放哪？
+好奇问一句：你们让 AI 总结完的内容，最后都放哪？
 
-### 配图位置
+### 配图
 
-- 图 1：动态首图，`images/jike/cards/jike-01.png`
-- 图 2：流程图，`images/jike/cards/jike-02.png`
-- 图 3：Obsidian 结构，`images/jike/cards/jike-03.png`
-- 图 4：边界说明，`images/jike/cards/jike-04.png`
-- 图 5：GitHub CTA，`images/jike/cards/jike-05.png`
+- `images/jike/cards/jike-01.png`
+- `images/jike/cards/jike-02.png`
+- `images/jike/cards/jike-03.png`
+- `images/jike/cards/jike-04.png`
+- `images/jike/cards/jike-05.png`
 
 ## 7. 小红书
 
-### 标题候选
+### 标题
 
-1. AI 总结完别再丢聊天框了
-2. Obsidian 用户真的需要这个流程
-3. 我让 Codex 自动整理资料库了
+AI 总结完以后，你真的找得到吗？
 
 ### 正文
 
-我之前用 AI 总结文章和视频，最大的问题不是总结不够快，而是总结完之后找不到。
+我以前特别喜欢让 AI 总结文章和视频。
 
-后来我做了一个本地工作流：`Obsidian Inbox`。
+但最大的问题是：总结完以后，过几天真的找不到。
 
-它会把链接/本地文件整理成 Obsidian 笔记，保留原始材料，并自动重建索引。
+后来我把 Codex 接进 Obsidian，做了一个本地资料入库小工具：`Obsidian Inbox`。
+
+它不是再生成一段摘要，而是把文章、视频、本地文件整理成 Obsidian 笔记。
 
 适合：
 
 - Obsidian 用户
-- 收藏很多资料但没时间整理的人
-- 经常看课程/长视频/技术文章的人
-- 想把 Codex 变成固定工作流的人
+- 收藏很多但没时间整理的人
+- 经常看课程、长视频、技术文章的人
+- 想让 AI 输出能长期复用的人
 
-它不是全平台一键下载，也不会绕过登录和付费墙。
-
-但如果你想让 AI 摘要真正回到自己的知识库里，这个方向可以试试。
+它不会绕过登录、验证码和付费墙；拿不到可靠材料时，也不会硬编。
 
 GitHub：Simuiu/obsidian-inbox
 
@@ -411,45 +355,47 @@ GitHub：Simuiu/obsidian-inbox
 
 ### 图片上传顺序
 
-1. `images/xiaohongshu/final-cards/xiaohongshu-final-01.png`：首图，讲痛点。
-2. `images/xiaohongshu/final-cards/xiaohongshu-final-02.png`：旧流程为什么不够。
-3. `images/xiaohongshu/final-cards/xiaohongshu-final-03.png`：新工作流。
-4. `images/xiaohongshu/final-cards/xiaohongshu-final-04.png`：Obsidian 输出结构。
-5. `images/xiaohongshu/final-cards/xiaohongshu-final-05.png`：适用人群。
-6. `images/xiaohongshu/final-cards/xiaohongshu-final-06.png`：边界和 GitHub。
+1. `images/xiaohongshu/final-cards/xiaohongshu-final-01.png`
+2. `images/xiaohongshu/final-cards/xiaohongshu-final-02.png`
+3. `images/xiaohongshu/final-cards/xiaohongshu-final-03.png`
+4. `images/xiaohongshu/final-cards/xiaohongshu-final-04.png`
+5. `images/xiaohongshu/final-cards/xiaohongshu-final-05.png`
+6. `images/xiaohongshu/final-cards/xiaohongshu-final-06.png`
 
 ## 8. B 站
 
-### 标题候选
+### 标题
 
-1. AI 总结完别丢了：我把 Codex 接进 Obsidian
-2. Obsidian + Codex：自动整理视频和文章资料
-3. 我做了个本地知识入库工具 Obsidian Inbox
+我把 Codex 接进 Obsidian，解决 AI 总结后找不到的问题
 
 ### 简介
 
-很多 AI 总结最后都留在聊天记录里。这个视频演示我做的开源项目 `Obsidian Inbox`：把链接、本地视频、文章资料整理成 Obsidian Markdown 笔记，并保留原始材料和索引。
+我以前经常用 AI 总结文章、视频和课程，但过几天再找，经常不知道摘要在哪个聊天窗口里。
 
-GitHub：
+所以我做了一个开源小工具：Obsidian Inbox。
+
+它会把链接或本地文件整理成 Obsidian 笔记，原始材料放进 `_resources`，并更新索引。重点不是“摘要更漂亮”，而是以后还能找回来。
+
+项目地址：
 https://github.com/Simuiu/obsidian-inbox
 
 章节：
 
-00:00 AI 总结之后的问题
-00:18 Obsidian Inbox 是什么
-00:42 本地入库流程
+00:00 为什么 AI 总结还不够
+00:18 我真正卡住的地方
+00:42 Obsidian Inbox 怎么做
 01:10 原始材料和索引
-01:35 适用场景和边界
-01:55 GitHub 项目地址
+01:35 它不会做什么
+01:55 项目地址
 
 标签：
-Obsidian, AI工具, Codex, 知识管理, 开源项目, Markdown
+Obsidian, Codex, AI工具, 知识管理, Markdown, 开源项目
 
 ### 置顶评论
 
 项目地址：https://github.com/Simuiu/obsidian-inbox
 
-如果你也有“AI 总结完不知道放哪”的问题，可以试试这个方向。欢迎 Star，也欢迎提 Issue 说说你想入库哪类资料。
+如果你也遇到过“总结过，但后来找不到”的问题，可以看看这个项目。欢迎 Star，也欢迎提 Issue 说说你希望什么资料能入库。
 
 ### 素材
 
@@ -460,39 +406,37 @@ Obsidian, AI工具, Codex, 知识管理, 开源项目, Markdown
 
 ## 9. 视频号
 
-### 标题候选
+### 标题
 
-1. AI 总结完，别丢聊天框
-2. 我把 Codex 接进 Obsidian
-3. 资料自动入库到 Obsidian
+我把 Codex 接进了 Obsidian
 
 ### 文案
 
-AI 总结之后，知识应该去哪？
+我以前经常用 AI 总结文章和视频。
 
-我做了一个本地工作流：`Obsidian Inbox`。
+但过几天再找，经常找不到那段摘要，也忘了原链接在哪。
 
-链接或本地文件进来，Codex 帮我整理成 Obsidian 笔记，原始材料进 `_resources`，索引自动重建。
+所以我做了一个小工具：Obsidian Inbox。
 
-它不是全平台一键下载，也不会绕过登录、验证码和付费墙。
+它会把链接或本地文件整理成 Obsidian 笔记，原始材料留下，索引也一起更新。
 
-它解决的是一个更朴素的问题：让 AI 摘要回到自己的知识库里。
+不是再做一段摘要，而是让资料以后还能找回来。
 
 GitHub：Simuiu/obsidian-inbox
 
-#Obsidian #AI工具 #Codex #知识管理 #开源项目
+#Obsidian #Codex #AI工具 #知识管理 #开源项目
 
 ### 素材
 
 - 视频：`video-assets/wechat-video-slideshow.mp4`
-- 首帧/封面建议：`images/wechat-video/cards/wechat-video-01.png`
+- 封面/首帧：`images/wechat-video/cards/wechat-video-01.png`
 - 过程配图：`images/wechat-video/cards/wechat-video-02.png` 至 `wechat-video-05.png`
 
 ## 10. GitHub
 
 ### About
 
-Local-first Codex workflow for turning videos, articles, and local media into traceable Obsidian notes with archived resources and rebuilt indexes.
+Turn Codex into a local Obsidian inbox for videos, articles, and local files.
 
 ### Topics
 
@@ -500,7 +444,7 @@ Local-first Codex workflow for turning videos, articles, and local media into tr
 
 ### README 引导语
 
-`Obsidian Inbox` turns Codex into a local knowledge ingestion assistant: links and local files become structured Obsidian notes, raw materials are archived, and indexes are rebuilt for future retrieval.
+`Obsidian Inbox` helps turn links and local files into Obsidian notes. It keeps raw materials nearby, rebuilds indexes, and avoids writing complete notes when the source material is missing.
 
 ### 配图
 
