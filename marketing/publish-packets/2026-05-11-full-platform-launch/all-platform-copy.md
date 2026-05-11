@@ -27,15 +27,13 @@ https://github.com/Simuiu/obsidian-inbox
 
 ## 2. 微信公众号
 
-### 标题候选
+### 标题
 
-1. AI 总结完，知识去哪了？
-2. 我把 Codex 接进了 Obsidian
-3. 别让 AI 摘要死在聊天框里
+我把 Codex 接进了 Obsidian
 
 ### 摘要
 
-我做了一个 local-first 的 Obsidian 入库工作流：链接或本地文件进来，正文/字幕/转写被整理成 Markdown 笔记，原始材料归档，索引自动重建。
+AI 总结不难，难的是总结之后能不能回到自己的知识库。我做了一个 local-first 的 Obsidian 入库工作流，让链接、本地文件、字幕和原始材料变成可追溯、可索引、可复用的 Markdown 笔记。
 
 ### 正文
 
