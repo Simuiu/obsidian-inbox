@@ -19,8 +19,8 @@
 | 掘金 | 半自动 | `05` 掘金段落 / HTML 助手 | `images/juejin/cards/` | 粘贴 Markdown，上传配图，检查代码块 |
 | V2EX | 人工确认发布 | `05` V2EX 段落 / HTML 助手 | `images/v2ex/cards/` | 选节点，粘贴正文，必要时不放图或放 1-2 张 |
 | 即刻 | 人工确认发布 | `05` 即刻段落 / HTML 助手 | `images/jike/cards/` | 粘贴正文，选择 1-5 张配图 |
-| B 站 | 半自动 | `05` B 站段落，`06` 分镜脚本 | `images/bilibili/cards/` | 上传视频，复制标题/简介/标签/置顶评论 |
-| 小红书 | 半自动 | `05` 小红书段落，`06` 卡片内容 | `images/xiaohongshu/cards/` | 上传 6 张图，复制标题/正文/话题 |
+| B 站 | 半自动 | `05` B 站段落，`06` 分镜脚本 | `images/bilibili/final-covers/` | 上传视频，复制标题/简介/标签/置顶评论 |
+| 小红书 | 半自动 | `05` 小红书段落，`06` 卡片内容 | `images/xiaohongshu/final-cards/` | 上传 6 张最终图，复制标题/正文/话题 |
 | 视频号 | 半自动 | `05` 视频号段落，`06` 60 秒脚本 | `images/wechat-video/cards/` | 上传视频或分镜图，复制标题/描述 |
 | GitHub | 已具备 CLI 能力，但推送受网络影响 | `03`、`04`、`05` GitHub 段落 | `images/github/cards/` | 等 GitHub push 恢复后检查 Issue 模板和 Release 草稿 |
 
@@ -53,7 +53,7 @@ marketing/publish-packets/2026-05-11-full-platform-launch/images/wechat/cards/
 1. 上传图片：
 
 ```text
-marketing/publish-packets/2026-05-11-full-platform-launch/images/xiaohongshu/cards/
+marketing/publish-packets/2026-05-11-full-platform-launch/images/xiaohongshu/final-cards/
 ```
 
 2. 复制标题、正文、话题。
@@ -71,7 +71,7 @@ marketing/publish-packets/2026-05-11-full-platform-launch/images/xiaohongshu/car
 3. 封面优先选：
 
 ```text
-marketing/publish-packets/2026-05-11-full-platform-launch/images/bilibili/cards/bilibili-01.png
+marketing/publish-packets/2026-05-11-full-platform-launch/images/bilibili/final-covers/bilibili-cover-01.png
 ```
 
 ## 6. 自动化待验证
@@ -87,4 +87,3 @@ marketing/publish-packets/2026-05-11-full-platform-launch/images/bilibili/cards/
 ## 7. Codex 自评结论
 
 本文件已经能支持你按平台逐个发布。当前最省事的路线是：先用 HTML 助手复制文案，再手动上传对应平台的配图。等第一轮验证有反馈后，再决定是否接平台草稿 API。
-

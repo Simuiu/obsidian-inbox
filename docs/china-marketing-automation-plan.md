@@ -38,6 +38,7 @@
 | 08 | Obsidian Inbox 平台发布操作辅助 | `marketing/platform-rules/08-platform-publishing-operations.md` | 各平台复制、上传配图、草稿/半自动发布操作说明 |
 | 09 | Obsidian Inbox 发布记录与复盘模板 | `marketing/reports/09-publishing-record-and-retro.md` | 发布数据记录、评论归类、每周复盘模板 |
 | 10 | Obsidian Inbox 首轮发布顺序执行包 | `marketing/calendar/10-first-round-publishing-sequence.md` | 首轮平台发布顺序和执行检查清单 |
+| 11 | Obsidian Inbox 平台草稿包与授权清单 | `marketing/drafts/11-platform-draft-packages.md` | 各平台本地草稿包、素材路径、需要你配合的账号授权事项 |
 
 后续编号规则：
 

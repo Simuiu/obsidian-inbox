@@ -239,6 +239,20 @@ Codex 根据任务包写成结构化 Obsidian 笔记。
 | 视频号 | 5 | `marketing/publish-packets/2026-05-11-full-platform-launch/images/wechat-video/cards/` |
 | GitHub | 5 | `marketing/publish-packets/2026-05-11-full-platform-launch/images/github/cards/` |
 
+额外精修素材：
+
+| 平台 | 数量 | 路径 | 说明 |
+| --- | ---: | --- | --- |
+| B 站 | 5 | `marketing/publish-packets/2026-05-11-full-platform-launch/images/bilibili/final-covers/` | 基于 image-2 底图，叠加准确中文封面文案 |
+| 小红书 | 6 | `marketing/publish-packets/2026-05-11-full-platform-launch/images/xiaohongshu/final-cards/` | 基于 image-2 底图，叠加准确中文卡片文案 |
+
+已生成视频素材：
+
+| 平台 | 文件 | 用途 |
+| --- | --- | --- |
+| B 站 | `marketing/publish-packets/2026-05-11-full-platform-launch/video-assets/bilibili-slideshow.mp4` | 可作为首版横版视频素材，后续可替换为真实录屏 |
+| 视频号 | `marketing/publish-packets/2026-05-11-full-platform-launch/video-assets/wechat-video-slideshow.mp4` | 可作为首版竖版视频素材，后续可替换为真实录屏 |
+
 ## 7. Codex 自评结论
 
 这份素材包已经足够支持第一轮视频/图文制作。真正发布前还缺实际录屏素材；小红书、视频号、B 站等平台已经有可选配图，后续可以根据平台反馈继续重生成更强风格版本。
