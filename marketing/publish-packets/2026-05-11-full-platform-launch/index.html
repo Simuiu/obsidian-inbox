@@ -300,7 +300,7 @@
       <div>
         <div class="eyebrow">WeChat Official Account Publish Desk</div>
         <h1>微信公众号单稿发布助手</h1>
-        <p class="lead">当前只保留一版确定内容：标题为“我把 Codex 接进了 Obsidian”。每段正文单独复制，配图就在对应段落下方，避免一次性粘贴产生大量空白。</p>
+        <p class="lead">当前只保留一版确定内容：标题为“我把 Codex 接进了 Obsidian”。正文改成更像个人经验帖，少讲概念，多讲真实麻烦和实际结果。公众号图片不要依赖粘贴，按段落下方提示用“图片 -> 本地上传”。</p>
       </div>
       <div class="actions">
         <button id="copy-all">复制完整正文</button>
@@ -316,8 +316,8 @@
           <div class="field-content">我把 Codex 接进了 Obsidian</div>
         </div>
         <div class="field">
-          <div class="field-label"><span>摘要</span><button class="ghost" data-copy="AI 总结不难，难的是总结之后能不能回到自己的知识库。我做了一个 local-first 的 Obsidian 入库工作流，让链接、本地文件、字幕和原始材料变成可追溯、可索引、可复用的 Markdown 笔记。" data-label="摘要">复制</button></div>
-          <div class="field-content">AI 总结不难，难的是总结之后能不能回到自己的知识库。我做了一个 local-first 的 Obsidian 入库工作流，让链接、本地文件、字幕和原始材料变成可追溯、可索引、可复用的 Markdown 笔记。</div>
+          <div class="field-label"><span>摘要</span><button class="ghost" data-copy="我以前最大的问题不是不会用 AI 总结，而是总结完以后根本找不回来。于是我把 Codex 接进 Obsidian，做了一个把文章、视频和本地资料整理进自己知识库的小工具。" data-label="摘要">复制</button></div>
+          <div class="field-content">我以前最大的问题不是不会用 AI 总结，而是总结完以后根本找不回来。于是我把 Codex 接进 Obsidian，做了一个把文章、视频和本地资料整理进自己知识库的小工具。</div>
         </div>
         <div class="field full">
           <div class="field-label"><span>阅读原文 / 项目链接</span><button class="ghost" data-copy="https://github.com/Simuiu/obsidian-inbox" data-label="项目链接">复制</button></div>
@@ -335,8 +335,8 @@
       <div class="panel-head"><h2>发布前检查</h2></div>
       <div class="body">
         <ul class="checklist">
-          <li>不要一次性把所有正文粘进去后再调图片，建议按段落顺序复制：正文段落 -> 上传对应图片 -> 下一段。</li>
-          <li>如果“复制图片”失败，点“打开图片”，在新标签页右键复制图片，或直接保存/上传该图片。</li>
+          <li>不要一次性把所有正文粘进去后再调图片，建议按段落顺序复制：正文段落 -> 公众号顶部“图片”上传对应图片 -> 下一段。</li>
+          <li>公众号后台对剪贴板图片支持不稳定，图片优先使用“下载图片”或“打开图片”后本地上传；“尝试复制”只是兜底。</li>
           <li>公众号正文里不要保留“插图 1 放这里”这类提示文字，图片上传后继续复制下一段即可。</li>
           <li>文末 GitHub 链接可以放正文，也可以放“阅读原文”。</li>
         </ul>
@@ -349,40 +349,40 @@
   <script>
     const segments = [
       {
-        title: "1. 开头：我真正卡住的不是总结",
+        title: "1. 开头：我真正受不了的是反复整理",
         image: "images/wechat/cards/wechat-01.png",
-        imageUse: "放在本段后，用来承接痛点：AI 摘要变多，但知识没有沉淀。",
-        text: "过去一年，我越来越频繁地用 AI 总结文章、视频、课程和会议材料。\n一开始很爽：几十分钟的视频，几秒钟就能得到重点；一篇长文章，马上能变成要点列表。\n但用久之后，我发现真正麻烦的不是“AI 会不会总结”，而是：\n总结完之后，它到底去哪了？\n很多摘要最后停在聊天窗口里。过几天想找，要么翻聊天记录，要么重新找链接，要么重新让 AI 总结一遍。\n这不是知识管理，只是把临时理解变快了。"
+        imageUse: "本段后上传 wechat-01.png，用来承接痛点：AI 摘要很多，但最后还是找不到。",
+        text: "我以前很爱让 AI 总结东西。\n看到一篇长文，丢进去；看到一个视频，丢进去；买了课、听了分享，也丢进去。\n当时确实省时间。\n但过几天我想找某个观点，经常会卡住：它到底在哪个聊天窗口里？原链接是哪一个？当时那段字幕或原文还在不在？\n最烦的是，有些内容我明明总结过，最后还是要重新找链接、重新发给 AI、重新整理一遍。\n这件事让我意识到：我缺的不是又一个摘要，而是一个能把资料放回知识库里的入口。"
       },
       {
-        title: "2. 问题：收藏越来越多，知识却没有沉淀",
+        title: "2. 我想要的是少做一次重复劳动",
         image: "images/wechat/cards/wechat-02.png",
-        imageUse: "放在本段后，用来展示从链接到 Obsidian 的入库链路。",
-        text: "我的资料来源很杂：B 站课程和长视频、微信公众号文章、YouTube、网页、本地视频和音频，还有很多临时看到但来不及处理的资料链接。\n如果每条都手动整理，成本太高；如果只交给 AI 总结，结果又很难沉淀。\n我真正想要的是一条更完整的链路：链接或本地文件进来，先提取正文、字幕或转写，再生成结构化笔记，保存原始材料，写入 Obsidian，最后自动重建索引。\n所以我做了一个小工具：Obsidian Inbox。"
+        imageUse: "本段后上传 wechat-02.png，用来说明资料从链接进入 Obsidian 的路径。",
+        text: "我的资料来源很杂：B 站视频、公众号文章、网页、本地课程、会议录音，还有一些临时收藏的链接。\n以前我会先收藏，等有空再整理。结果你也知道，基本没有那个“有空”。\n所以我想要的其实很简单：我把链接或本地文件丢进去，它先把正文、字幕或转写准备好，再让 Codex 写成一篇 Obsidian 笔记，同时把原始材料也留下。\n下次我再找这条资料，不用翻聊天记录，也不用猜关键词，直接从 Obsidian 的索引里进。"
       },
       {
-        title: "3. 它不是摘要工具，而是入库工作流",
+        title: "3. 我把 Codex 接进 Obsidian 后发生了什么",
         image: "images/wechat/cards/wechat-03.png",
-        imageUse: "放在本段后，用来解释 Obsidian Inbox 的核心工作。",
-        text: "Obsidian Inbox 的定位很简单：把 Codex 变成你的本地知识入库员。\n它做的不是生成一段更漂亮的摘要，而是把外部内容变成 Obsidian 里可追溯、可索引、可复用的 Markdown 笔记。\n目前的主流程是：链接进入后，本地脚本先抓字幕或正文，生成 compact.md；Codex 读取任务包，写入结构化 Obsidian 笔记；最后重建资料库索引、主题索引和用途索引。\n每条资料会有一个主笔记，也会有 _resources 目录保存原始正文、字幕、转写或本地文件路径。\n这样以后看到的就不只是一段摘要，而是一条带来源、带上下文、带索引入口的知识资产。"
+        imageUse: "本段后上传 wechat-03.png，用来解释工具到底产出什么。",
+        text: "这个小工具叫 Obsidian Inbox。\n它现在做的事情不复杂：先在本地准备资料包，再让 Codex 按固定结构写 Obsidian 笔记。\n一条资料进来后，最后不只是得到一段“本文主要讲了什么”。它会变成一个文件夹：里面有主笔记，也有 _resources，用来放原始正文、字幕、转写或本地文件路径。\n我最需要的就是这个结果。\n因为一篇笔记如果没有来源、没有原始材料、没有索引入口，过一段时间还是会变成孤岛。"
       },
       {
-        title: "4. 我刻意做了几个限制",
+        title: "4. 有些事我故意不让它做",
         image: "images/wechat/cards/wechat-04.png",
-        imageUse: "放在本段后，用来强调可信边界和失败安全。",
-        text: "我没有把它包装成“全平台一键导入”。\n原因很简单：很多平台有登录、权限、验证码、版权和付费内容边界。一个个人知识管理工具，不应该宣传自己能绕过这些限制。\n所以它的原则是：能正常抓到公开正文或字幕，才总结；抓不到正文、字幕或可靠转写时，不编造内容；Vault、Markdown、原始材料默认留在本机；涉及账号权限和高风险自动化时，保留人工确认。\n这也是我最看重的地方：失败要透明，来源要可追溯。"
+        imageUse: "本段后上传 wechat-04.png，用来说明边界，降低广告感。",
+        text: "我没有把它写成“全平台一键导入神器”。\n听起来很厉害，但不真实，也不安全。\n很多平台有登录、验证码、付费墙和版权边界。这个工具不会宣传自己能绕过这些限制。\n它的原则反而比较保守：能拿到公开正文或字幕，才继续整理；拿不到可靠材料，就保留失败状态，不硬编一篇看起来很完整的笔记；Obsidian Vault、Markdown 和原始材料默认都在本地。\n对我来说，知识库工具最重要的不是显得自动化，而是别把不确定的东西伪装成确定。"
       },
       {
-        title: "5. 适合哪些人",
+        title: "5. 它适合的不是所有人",
         image: "images/wechat/cards/wechat-05.png",
-        imageUse: "放在本段后，用来收束适用人群和 GitHub 引导。",
-        text: "我觉得它适合这些人：已经用 Obsidian，但资料库越来越乱；经常让 AI 总结内容，但总结散落在聊天记录里；看课程、长视频、会议材料，需要复盘和二次加工；希望 Codex 不只是问答，而是参与稳定工作流；关心 Markdown、本地优先、来源归档和可迁移。\n如果你只是偶尔总结一篇文章，它可能有点重。\n但如果你已经在维护自己的知识库，或者经常收藏很多资料却来不及整理，它解决的是一个很具体的问题：让内容从“看过、收藏过”，变成“以后真的能找回和复用”。"
+        imageUse: "本段后上传 wechat-05.png，用来收束适用人群和项目地址。",
+        text: "如果你只是偶尔让 AI 总结一篇文章，它可能有点重。\n但如果你已经在用 Obsidian，或者经常看长视频、课程、技术文章、会议材料，又总觉得“收藏很多，真正沉淀很少”，它会比较适合你。\n我做它的目的不是替我思考，而是替我完成那部分最容易拖延的整理动作：建文件、归档材料、写初稿、补索引。\n真正有价值的地方，是它把“我看过”往前推了一步，变成“我以后还能找回来”。"
       },
       {
         title: "6. 项目地址",
         image: "",
         imageUse: "",
-        text: "项目已经放在 GitHub：\nhttps://github.com/Simuiu/obsidian-inbox\n如果这个方向对你有用，欢迎 Star。也欢迎在 Issue 里告诉我：你最想入库哪类资料？你希望 Obsidian 笔记长什么样？你现在整理视频、文章、课程时最卡在哪一步？\n我的答案很朴素：AI 总结之后，知识应该回到你自己的知识库里，带着来源，带着索引，带着以后还能复用的结构。"
+        text: "项目已经放在 GitHub：\nhttps://github.com/Simuiu/obsidian-inbox\n如果你也遇到过“总结过，但后来找不到”的问题，可以看看这个项目。\n欢迎 Star，也欢迎在 Issue 里告诉我：你最想入库哪类资料？你希望 Obsidian 笔记长什么样？你现在整理视频、文章、课程时最卡在哪一步？\n我现在越来越觉得，AI 总结之后，最关键的问题不是它写得多漂亮，而是它能不能回到你自己的知识库里。"
       }
     ];
 
@@ -465,11 +465,13 @@
                 <img src="${segment.image}" alt="${segment.title}">
                 <div class="image-note">
                   <p><strong>配图位置：</strong>${segment.imageUse}</p>
+                  <p><strong>公众号操作：</strong>点编辑器顶部“图片”，选择本地上传；不要依赖直接粘贴图片。</p>
                   <p><strong>图片路径：</strong>${segment.image}</p>
                   <div class="image-actions">
-                    <button data-copy-image="${segment.image}">复制图片</button>
+                    <a class="btn" href="${segment.image}" download>下载图片</a>
                     <button class="ghost" data-copy-path="${segment.image}">复制路径</button>
                     <a class="btn secondary" href="${segment.image}" target="_blank" rel="noreferrer">打开图片</a>
+                    <button class="ghost" data-copy-image="${segment.image}">尝试复制</button>
                   </div>
                 </div>
               </div>
