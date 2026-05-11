@@ -1,4 +1,4 @@
-# Obsidian Inbox 发布能力确认表
+# 02 Obsidian Inbox 发布能力确认表
 
 ## 1. 本阶段目标
 

@@ -1,4 +1,4 @@
-# GitHub About 与 Topics 发布包
+# 03 GitHub About 与 Topics 发布包
 
 ## Description
 
@@ -52,4 +52,3 @@ Star this repo if you want better local-first AI workflows for Obsidian.
 1. 先确认 Description 和 Topics。
 2. 用 `gh repo edit` 或 GitHub 网页后台更新仓库信息。
 3. 更新后检查 GitHub 项目首屏是否能在 5 秒内说明项目价值。
-

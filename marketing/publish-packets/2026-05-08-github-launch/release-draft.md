@@ -1,4 +1,4 @@
-# Obsidian Inbox v0.1 发布草稿
+# 04 Obsidian Inbox v0.1 发布草稿
 
 ## 标题
 
@@ -44,4 +44,3 @@ https://github.com/Simuiu/obsidian-inbox
 1. 当前是否已经准备好打 `v0.1` tag。
 2. 是否要先补一段 60-90 秒 demo 视频链接。
 3. 是否要把 README 里的中文快速开始再压缩一版，放进 Release。
-

@@ -1,4 +1,4 @@
-# Obsidian Inbox 统一推广口径
+# 01 Obsidian Inbox 统一推广口径
 
 ## 1. 本阶段目标
 
