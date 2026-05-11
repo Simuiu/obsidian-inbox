@@ -248,6 +248,30 @@
       line-height: 1.75;
     }
 
+    .cover-box {
+      display: grid;
+      grid-template-columns: minmax(280px, 520px) minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .cover-box img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid rgba(38,35,31,.16);
+      background: white;
+    }
+
+    .cover-meta {
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
     .toast {
       position: fixed;
       left: 50%;
@@ -291,6 +315,7 @@
       .fields { grid-template-columns: 1fr; }
       .field.full { grid-column: auto; }
       .image-box { grid-template-columns: 1fr; }
+      .cover-box { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -322,6 +347,22 @@
         <div class="field full">
           <div class="field-label"><span>阅读原文 / 项目链接</span><button class="ghost" data-copy="https://github.com/Simuiu/obsidian-inbox" data-label="项目链接">复制</button></div>
           <div class="field-content">https://github.com/Simuiu/obsidian-inbox</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><h2>封面图</h2></div>
+      <div class="body cover-box">
+        <img src="images/wechat/cover-wechat-flow.png" alt="微信公众号封面图">
+        <div class="cover-meta">
+          <div><strong>用途：</strong>公众号封面首图，适合放在文章列表和转发卡片里。</div>
+          <div><strong>图片路径：</strong>images/wechat/cover-wechat-flow.png</div>
+          <div class="image-actions">
+            <button data-download-image="images/wechat/cover-wechat-flow.png">下载封面</button>
+            <button class="ghost" data-copy-path="images/wechat/cover-wechat-flow.png">复制路径</button>
+            <a class="btn secondary" href="images/wechat/cover-wechat-flow.png" target="_blank" rel="noreferrer">打开封面</a>
+          </div>
         </div>
       </div>
     </section>

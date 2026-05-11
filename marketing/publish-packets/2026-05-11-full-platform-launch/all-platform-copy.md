@@ -20,6 +20,7 @@ https://github.com/Simuiu/obsidian-inbox
 配图使用：
 
 - 每个平台至少使用 5 张配图。
+- 微信公众号封面图：`images/wechat/cover-wechat-flow.png`。
 - 长文平台按正文中的“插图位”插入。
 - 小红书按卡片顺序上传。
 - B 站和视频号优先上传视频文件，再上传封面/首帧图。
