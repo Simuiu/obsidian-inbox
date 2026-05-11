@@ -444,6 +444,25 @@
       }
     }
 
+    async function downloadImage(path) {
+      try {
+        const response = await fetch(path);
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = path.split("/").pop() || "wechat-image.png";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+        showToast("图片已开始下载");
+      } catch (err) {
+        window.open(path, "_blank");
+        showToast("下载失败，已打开图片，请右键另存为");
+      }
+    }
+
     function showToast(message) {
       toast.textContent = message;
       toast.classList.add("show");
@@ -468,7 +487,7 @@
                   <p><strong>公众号操作：</strong>点编辑器顶部“图片”，选择本地上传；不要依赖直接粘贴图片。</p>
                   <p><strong>图片路径：</strong>${segment.image}</p>
                   <div class="image-actions">
-                    <a class="btn" href="${segment.image}" download>下载图片</a>
+                    <button data-download-image="${segment.image}">下载图片</button>
                     <button class="ghost" data-copy-path="${segment.image}">复制路径</button>
                     <a class="btn secondary" href="${segment.image}" target="_blank" rel="noreferrer">打开图片</a>
                     <button class="ghost" data-copy-image="${segment.image}">尝试复制</button>
@@ -488,6 +507,9 @@
       });
       document.querySelectorAll("[data-copy-image]").forEach(button => {
         button.addEventListener("click", () => copyImage(button.dataset.copyImage));
+      });
+      document.querySelectorAll("[data-download-image]").forEach(button => {
+        button.addEventListener("click", () => downloadImage(button.dataset.downloadImage));
       });
       document.querySelectorAll("[data-copy-path]").forEach(button => {
         button.addEventListener("click", () => copyPlain(button.dataset.copyPath, "图片路径"));
