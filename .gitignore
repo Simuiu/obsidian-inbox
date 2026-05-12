@@ -22,5 +22,6 @@ config.yaml
 # Login cookies and credentials.
 secrets/*.txt
 secrets/*.json
+secrets/*.env
 secrets/*.cookies
 secrets/*.cookies.txt
